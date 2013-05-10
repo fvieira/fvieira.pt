@@ -1,0 +1,147 @@
+@images_folder: "../images";
+
+/* MIXINS */
+.rounded-corners (@radius) {
+    -webkit-border-radius: @radius;
+    -moz-border-radius: @radius;
+    -ms-border-radius: @radius;
+    -o-border-radius: @radius;
+    border-radius: @radius;
+}
+
+/* LAYOUT POSITIONING*/
+
+body {
+}
+
+#wrapper {
+    padding: 20px;
+    width: 960px;
+    margin: 20px auto;
+}
+
+#content {
+    float: left;
+    width: 740px;
+    margin-right: 20px;
+}
+
+#sidebar {
+    float: left;
+    width: 200px;
+}
+
+#foto {
+    float: left;
+    margin-bottom: 10px;
+}
+
+#aboutme {
+    float: left;
+    width: 460px;
+    padding: 10px;
+    margin-left: 10px;
+}
+
+#portfolio {
+    clear: both;
+    padding: 10px;
+    margin-top: 10px;
+}
+
+#links {
+    padding: 10px;
+    margin-bottom: 10px;
+}
+
+#twitter_feed {
+    padding: 10px;
+}
+
+#footer {
+    clear: both;
+}
+
+#logo {
+    padding: 20px;
+    margin-bottom: 10px;
+}
+
+/* DESIGN*/
+
+body {
+    background-color: #EAFFF2;
+    background-attachment: fixed;
+    background-position: bottom right;
+}
+
+#wrapper {
+    background-color: white;
+    .rounded-corners(10px);
+}
+
+#content {
+}
+
+h3 {
+    font-size: 20px;
+    font-weight: bold;
+    margin: 10px 0;
+}
+
+#logo {
+    font-family: "Comic Sans MS", cursive, sans-serif;
+    font-size: 40px;
+}
+
+#logo span {
+    border-bottom: 1px solid #CCC;
+}
+
+#aboutme {
+
+}
+
+/* SOCIAL BUTTONS */
+.social-button img {
+    width: 20px;
+}
+
+.social-button {
+    display: inline;
+}
+
+.social-button img:hover {
+    position: relative;
+    top: -1px;
+    left: 1px;
+}
+
+.github-button img {
+}
+
+.github-button a:hover {
+}
+
+
+
+/* DELETE THIS */
+#sidebar div,
+#content div {
+    background-color: #EFFDEF;
+    .rounded-corners(20px);
+}
+
+/*
+#content {
+    width: 750px;
+}
+
+#aboutme {
+    width: 490px;
+}
+
+div {
+    border: 1px dashed black;
+}
+*/

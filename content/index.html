@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>{{ author.name }}'s Website</title>
+        <link type="text/css" rel="stylesheet" href="{{ media_url('css/reset.css') }}">
+        <link type="text/css" rel="stylesheet" href="{{ media_url('css/style.css') }}">
+        <link rel="icon" type="image/ico" href="{{ media_url('images/favicon.ico') }}">
+        <script type="text/javascript" src="{{ media_url('js/script.js') }}"></script>
+    </head>
+    <body>
+        <!-- Facebook code -->
+        <div id="fb-root"></div>
+        <script> (function(d, s, id) {var js, fjs = d.getElementsByTagName(s)[0]; if (d.getElementById(id)) return; js = d.createElement(s); js.id = id; js.src = "//connect.facebook.net/en_US/all.js#xfbml=1"; fjs.parentNode.insertBefore(js, fjs); }(document, 'script', 'facebook-jssdk')); </script>
+
+        <div id="wrapper">
+            <div id="content">
+                <div id="logo"><span>{{ author.name }}</span></div>
+                <div id="foto"><img src="{{ media_url('images/photo.jpg') }}" alt="My photo"></div>
+                <div id="aboutme">
+                    <h3>About me</h3>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Exercitationem tempore mollitia ab natus possimus alias adipisci sunt optio doloribus tenetur. Quas, culpa, quibusdam voluptate architecto pariatur cum possimus asperiores impedit.</p>
+                </div>
+                <div id="portfolio">
+                    <h3>Portfolio</h3>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Reprehenderit, autem aliquid qui reiciendis natus voluptatem tempora voluptatibus architecto. Dignissimos, at temporibus vero blanditiis reiciendis veniam eveniet incidunt sed tempore alias?</p>
+                </div>
+            </div>
+            <div id="sidebar">
+                <div id="links">
+                    <!-- Facebook button -->
+                    <div class="facebook-button social-button">
+                        <div class="fb-like" data-href="{{ author.website }}" data-send="false" data-layout="button_count" data-width="450" data-show-faces="false"></div>
+                    </div>
+
+                    <!-- Twitter button -->
+                    <div class="twitter-button social-button">
+                        <a href="https://twitter.com/share" class="twitter-share-button" data-url="{{ author.website }}" data-via="{{ author.tweet_via }}">Tweet</a>
+                        <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+                    </div>
+
+
+                    <!-- Github button -->
+                    <div class="github-button social-button">
+                        <a  href="{{ author.github_link }}"><img src="{{ media_url('images/github-mark.png') }}" alt="Github social button"></a>
+                    </div>
+
+                    <!-- Mail button -->
+                    <div class="mail-button social-button">
+                        <a  href="mailto:{{ author.email }}"><img src="{{ media_url('images/email-icon.png') }}" alt="Mail button"></a>
+                    </div>
+
+                </div>
+            </div>
+            <div id="footer">
+            </div>
+        </div>
+    </body>
+</html>
