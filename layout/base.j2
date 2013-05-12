@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>{{ author.name }}'s Website</title>
+        <link type="text/css" rel="stylesheet" href="{{ media_url('css/reset.css') }}">
+        <link type="text/css" rel="stylesheet" href="{{ media_url('css/style.css') }}">
+        {% block extra_style %}{% endblock %}
+        <link rel="icon" type="image/ico" href="{{ media_url('images/favicon.ico') }}">
+        <script type="text/javascript" src="{{ media_url('js/script.js') }}"></script>
+    </head>
+    <body>
+        <header>
+            <div id="header-wrapper">
+                <div id="logo">
+                    {{ author.name }}
+                </div>
+                <nav id="main-nav">
+                    <ul>
+                        {% for section in content.menu %}
+                        {% set section_url = content_url(section.url) %}
+                        <li class="tab{% if section_url == resource.url %} active{% endif %}"><a href="{{ section_url }}">{{ section.name }}</a></li>
+                        {% endfor %}
+                    </ul>
+                </nav>
+            </div>
+        </header>
+
+        <div id="content">
+            {% block content %}{% endblock %}
+        </div>
+    </body>
+</html>

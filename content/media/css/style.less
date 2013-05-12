@@ -1,147 +1,90 @@
-@images_folder: "../images";
+@import "common.less";
 
-/* MIXINS */
-.rounded-corners (@radius) {
-    -webkit-border-radius: @radius;
-    -moz-border-radius: @radius;
-    -ms-border-radius: @radius;
-    -o-border-radius: @radius;
-    border-radius: @radius;
+/* LAYOUT */
+
+* {
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
 }
-
-/* LAYOUT POSITIONING*/
 
 body {
+    width: 100%;
+    font-size: 100%;
 }
 
-#wrapper {
-    padding: 20px;
-    width: 960px;
-    margin: 20px auto;
-}
-
-#content {
-    float: left;
-    width: 740px;
-    margin-right: 20px;
-}
-
-#sidebar {
-    float: left;
-    width: 200px;
-}
-
-#foto {
-    float: left;
-    margin-bottom: 10px;
-}
-
-#aboutme {
-    float: left;
-    width: 460px;
-    padding: 10px;
-    margin-left: 10px;
-}
-
-#portfolio {
-    clear: both;
-    padding: 10px;
-    margin-top: 10px;
-}
-
-#links {
-    padding: 10px;
-    margin-bottom: 10px;
-}
-
-#twitter_feed {
-    padding: 10px;
-}
-
-#footer {
-    clear: both;
+#header-wrapper {
+    height: @header-height;
+    margin: auto;
 }
 
 #logo {
-    padding: 20px;
-    margin-bottom: 10px;
+    float: left;
+    padding: 0 1em;
+    line-height: @header-height;
 }
 
-/* DESIGN*/
-
-body {
-    background-color: #EAFFF2;
-    background-attachment: fixed;
-    background-position: bottom right;
+#main-nav .tab {
+    float: left;
 }
 
-#wrapper {
-    background-color: white;
-    .rounded-corners(10px);
+#main-nav ul {
+    padding: 0 1em;
+    float: right;
+}
+
+#main-nav .tab a {
+    display: block;
+    line-height: @header-height;
+    padding: 0 1em;
 }
 
 #content {
+    clear: both;
+    margin: auto;
+    margin-top: 2em;
 }
 
-h3 {
-    font-size: 20px;
+#header-wrapper,
+#content {
+    font-size: @content-font-size;
+    max-width: @content-max-width;
+}
+
+/* DESIGN */
+
+body {
+    background-color: #F5F5F5;
+}
+
+header {
+    background-color: #1A1A1A;
+}
+
+#logo {
+    font-family: "Dejavu Serif", "Courier New", "Arial", sans-serif;
+    color: #DDD;
     font-weight: bold;
-    margin: 10px 0;
 }
 
-#logo {
-    font-family: "Comic Sans MS", cursive, sans-serif;
-    font-size: 40px;
+#main-nav {
+    font-family: Georgia, serif;
+    font-weight: bold;
 }
 
-#logo span {
-    border-bottom: 1px solid #CCC;
+#main-nav .tab a {
+    color: #DDD;
+    text-decoration: none;
 }
 
-#aboutme {
-
+#main-nav .tab a:hover {
+    background-color: #333;
+    color: white;
+    .transition(~"background-color, color", 125ms, ease-in-out, 0);
 }
 
-/* SOCIAL BUTTONS */
-.social-button img {
-    width: 20px;
+#main-nav .tab.active a {
+    .linear-gradient(#080808, #3C3C3C);
+    .box-shadow (0, 0, 2px, 0, rgba(255, 255, 255, 0.3));
+    color: #FFF;
 }
-
-.social-button {
-    display: inline;
-}
-
-.social-button img:hover {
-    position: relative;
-    top: -1px;
-    left: 1px;
-}
-
-.github-button img {
-}
-
-.github-button a:hover {
-}
-
-
-
-/* DELETE THIS */
-#sidebar div,
-#content div {
-    background-color: #EFFDEF;
-    .rounded-corners(20px);
-}
-
-/*
-#content {
-    width: 750px;
-}
-
-#aboutme {
-    width: 490px;
-}
-
-div {
-    border: 1px dashed black;
-}
-*/

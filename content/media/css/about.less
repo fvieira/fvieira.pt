@@ -1,0 +1,77 @@
+@import "common.less";
+@foto-border-width: 0.3em;
+@aboutme-intro-color: #2A7905;
+@aboutme-intro-color: #8D8D8D;
+@top-margin-side: 8%;
+
+/* LAYOUT */
+#foto {
+    float: left;
+    margin-left: @top-margin-side;
+    overflow: hidden;
+    width: 40% - @top-margin-side;
+    max-width: 250px - @foto-border-width;
+    max-height: 327px;
+}
+
+#foto img {
+    .resizable-img;
+}
+
+#aboutme-intro {
+    float: right;
+    width: 60% - @top-margin-side;
+    margin-right: @top-margin-side;
+}
+
+#aboutme-intro div {
+    margin: 15% 0;
+}
+
+#aboutme-full {
+    clear: both;
+    margin: 0 @top-margin-side;
+    padding: 0.1em 0;
+    text-align: justify;
+}
+
+/* DESIGN */
+
+#aboutme-intro {
+    font-family: "Passion One", "Impact", sans-serif;
+    font-size: 1.5em;
+    color: @aboutme-intro-color;
+    line-height: 1.5em;
+    text-align: center;
+}
+
+
+#aboutme-intro a {
+    text-decoration: none;
+    border-bottom: 1px dashed darken(@aboutme-intro-color, 10%);
+    color: @aboutme-intro-color;
+}
+
+#aboutme-intro a:hover {
+   color: darken(@aboutme-intro-color, 10%);
+   border-bottom-color: darken(@aboutme-intro-color, 20%);
+}
+
+#foto {
+    border: @foto-border-width solid #CCC;
+    .rounded-corners;
+}
+
+#foto img {
+    margin: @foto-border-width*(-1em) 0;
+}
+
+#aboutme-full {
+    font-family: Georgia, Times, 'Times New Roman', serif;
+    color: #333;
+}
+
+#aboutme-full h3 {
+    font-size: 1.5em;
+    margin: 1em 0 0.5em 0.5em;
+}

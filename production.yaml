@@ -1,2 +1,9 @@
 extends: site.yaml
 mode: production
+
+urlcleaner:
+    index_file_names:
+        - about.html
+    strip_extensions:
+        - html
+    append_slash: true

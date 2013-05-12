@@ -1,0 +1,27 @@
+{% extends "base.j2" %}
+{% import "macros.j2" as macros %}
+{% block extra_style %}
+    <link type="text/css" rel="stylesheet" href="{{ media_url('css/about.css') }}">
+{% endblock %}
+
+{% block content %}
+    <div id="foto"><img src="{{ media_url('images/full-photo.jpg') }}" alt="My photo"></div>
+    <div id="aboutme-intro">
+        <div>
+            Hello there, I'm Francisco Vieira!<br />
+            I'm a self-proclaimed
+            <a href="http://www.sans.org/20coolestcareers/#job18">Security-savvy Software Developer</a>!
+        </div>
+        {#<p>I love to learn about pretty much everything, and sometimes I do something useful with what I learn.</p>#}
+    </div>
+    <div id="aboutme-full">
+        <h3>Under construction</h3>
+        {{ macros.lorem_ipsum() }}
+        {{ macros.lorem_ipsum() }}
+        {{ macros.lorem_ipsum() }}
+        <h3>Under construction</h3>
+        {{ macros.lorem_ipsum() }}
+        {{ macros.lorem_ipsum() }}
+        {{ macros.lorem_ipsum() }}
+    </div>
+{% endblock %}
