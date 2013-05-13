@@ -39,3 +39,7 @@ meta:
     # number of files.
     nodemeta: meta.yaml
     author: Francisco Vieira
+
+jinja2:
+    extensions:
+        - jinja_extensions.YearsFrom

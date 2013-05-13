@@ -62,7 +62,21 @@ body {
 }
 
 header {
-    background-color: #1A1A1A;
+    background-color: #222;
+}
+
+a {
+    color: #007ED5;
+    text-decoration: underline;
+}
+
+a:hover {
+    text-decoration: none;
+}
+
+a:visited {
+    color: #8B8E92;
+    text-decoration: underline;
 }
 
 #logo {
@@ -76,7 +90,7 @@ header {
     font-weight: bold;
 
     .tab a {
-        color: #DDD;
+        color: #BBB;
         text-decoration: none;
     }
 
@@ -87,7 +101,7 @@ header {
     }
 
     .tab.active a {
-        .linear-gradient(#202020, #5A5A5A);
+        .linear-gradient(#080808, #3C3C3C);
         .box-shadow (0, 0, 2px, 0, rgba(255, 255, 255, 0.3));
         color: #FFF;
     }
@@ -96,13 +110,25 @@ header {
 /* MARKDOWN */
 .markdown {
     h1 {
-        font-size: 1.5em;
-        margin: 1em 0 0.5em 0.5em;
+        font-size: 1.2em;
+        font-weight: bold;
+        margin: 1.5em 0 0.5em 0em;
+        font-family: Georgia, Times, 'Times New Roman', serif;
+        font-family: Arial;
     }
 
     p {
-        font-family: Georgia, serif;
-        line-height: 1.1em;
+        font-family: Georgia, Times, 'Times New Roman', serif;
+        line-height: 1.5em;
+        font-size: 0.9em;
+    }
+
+    em {
+        font-style: italic;
+    }
+
+    strong {
+        font-weight: bold;
     }
 
 }
