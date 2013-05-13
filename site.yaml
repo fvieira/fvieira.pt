@@ -25,7 +25,7 @@ context:
             tweet_via: fjmvieira
         content:
             menu:
-                - {name: About me, url: about.html}
+                - {name: About me, url: about.html, index: true}
                 - {name: Blog, url: blog.html}
 
 # This defines meta data on the whole site.
