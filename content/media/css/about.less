@@ -12,21 +12,23 @@
     width: 40% - @top-margin-side;
     max-width: 250px - @foto-border-width;
     max-height: 327px;
+
+    img {
+        .resizable-img;
+    }
 }
 
-#foto img {
-    .resizable-img;
-}
 
 #aboutme-intro {
     float: right;
     width: 60% - @top-margin-side;
     margin-right: @top-margin-side;
+
+    div {
+        margin: 15% 0;
+    }
 }
 
-#aboutme-intro div {
-    margin: 15% 0;
-}
 
 #aboutme-full {
     clear: both;
@@ -43,35 +45,29 @@
     color: @aboutme-intro-color;
     line-height: 1.5em;
     text-align: center;
-}
 
+    a {
+        text-decoration: none;
+        border-bottom: 1px dashed darken(@aboutme-intro-color, 10%);
+        color: @aboutme-intro-color;
+    }
 
-#aboutme-intro a {
-    text-decoration: none;
-    border-bottom: 1px dashed darken(@aboutme-intro-color, 10%);
-    color: @aboutme-intro-color;
-}
-
-#aboutme-intro a:hover {
-   color: darken(@aboutme-intro-color, 10%);
-   border-bottom-color: darken(@aboutme-intro-color, 20%);
+    a:hover {
+       color: darken(@aboutme-intro-color, 10%);
+       border-bottom-color: darken(@aboutme-intro-color, 20%);
+    }
 }
 
 #foto {
     border: @foto-border-width solid #CCC;
     .rounded-corners;
-}
 
-#foto img {
-    margin: @foto-border-width*(-1em) 0;
+    img {
+        margin: @foto-border-width*(-1em) 0;
+    }
 }
 
 #aboutme-full {
     font-family: Georgia, Times, 'Times New Roman', serif;
     color: #333;
-}
-
-#aboutme-full h3 {
-    font-size: 1.5em;
-    margin: 1em 0 0.5em 0.5em;
 }

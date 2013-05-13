@@ -24,20 +24,24 @@ body {
     line-height: @header-height;
 }
 
-#main-nav .tab {
-    float: left;
+#main-nav {
+    ul {
+        padding: 0 1em;
+        float: right;
+    }
+
+    .tab {
+        float: left;
+
+        a {
+            display: block;
+            line-height: @header-height;
+            padding: 0 1em;
+        }
+    }
 }
 
-#main-nav ul {
-    padding: 0 1em;
-    float: right;
-}
 
-#main-nav .tab a {
-    display: block;
-    line-height: @header-height;
-    padding: 0 1em;
-}
 
 #content {
     clear: both;
@@ -70,21 +74,29 @@ header {
 #main-nav {
     font-family: Georgia, serif;
     font-weight: bold;
+
+    .tab a {
+        color: #DDD;
+        text-decoration: none;
+    }
+
+    .tab a:hover {
+        background-color: #333;
+        color: white;
+        .transition(~"background-color, color", 125ms, ease-in-out, 0);
+    }
+
+    .tab.active a {
+        .linear-gradient(#080808, #3C3C3C);
+        .box-shadow (0, 0, 2px, 0, rgba(255, 255, 255, 0.3));
+        color: #FFF;
+    }
 }
 
-#main-nav .tab a {
-    color: #DDD;
-    text-decoration: none;
-}
-
-#main-nav .tab a:hover {
-    background-color: #333;
-    color: white;
-    .transition(~"background-color, color", 125ms, ease-in-out, 0);
-}
-
-#main-nav .tab.active a {
-    .linear-gradient(#080808, #3C3C3C);
-    .box-shadow (0, 0, 2px, 0, rgba(255, 255, 255, 0.3));
-    color: #FFF;
+/* MARKDOWN */
+.markdown {
+    h1 {
+        font-size: 1.5em;
+        margin: 1em 0 0.5em 0.5em;
+    }
 }
