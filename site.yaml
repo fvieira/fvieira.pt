@@ -23,6 +23,9 @@ context:
             github_link: https://github.com/fvieira
             website: http://fvieira.pt
             tweet_via: fjmvieira
+        google_analytics:
+            website: fvieira.pt
+            tracking_id: UA-40871161-1
         content:
             menu:
                 - {name: About me, url: about.html, index: true}
