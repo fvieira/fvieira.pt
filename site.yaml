@@ -29,7 +29,6 @@ context:
         content:
             menu:
                 - {name: About me, url: about.html, index: true}
-                - {name: Blog, url: blog.html}
 
 # This defines meta data on the whole site.
 meta:
