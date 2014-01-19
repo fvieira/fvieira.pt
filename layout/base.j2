@@ -8,6 +8,7 @@
         {% block extra_style %}{% endblock %}
         <link rel="icon" type="image/ico" href="{{ media_url('images/favicon.ico') }}">
         <script type="text/javascript" src="{{ media_url('js/script.js') }}"></script>
+        {% block extra_scripts %}{% endblock %}
         {{ social.google_analytics_script() }}
     </head>
     <body>
