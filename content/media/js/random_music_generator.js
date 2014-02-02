@@ -8,8 +8,8 @@
             type: 'POST',
             url: HOST + 'generate_random_music',
             data: JSON.stringify(get_music_params()),
-            contentType: "application/json; charset=utf-8",
-            dataType: "json"
+            contentType: 'application/json; charset=utf-8',
+            dataType: 'json'
         }).done(function(data) {
             $('#waiting_message').hide();
             activate_download_button('ly', data.music_id);
@@ -20,10 +20,30 @@
 
     function get_music_params() {
         var music_params = {};
-        var pitches = [-5, -4, -3, -2, -1, 0, 1, 2, 4, 5, 7, 9, 11, 12, 14, 16, 17, 19, 21, 23];
-        if (pitches) {
-            music_params.pitches = pitches;
+
+        var pitches = [];
+        var pitch_checkboxes = document.getElementsByName('pitches');
+        var i;
+        for(i = 0; i < pitch_checkboxes.length; i++) {
+            if(pitch_checkboxes[i].checked){
+                pitches.push(parseInt(pitch_checkboxes[i].value));
+            }
         }
+        music_params.pitches = pitches;
+
+
+        // var durations = [[1, 10], [0.875, 1], [0.75, 5], [0.5, 30], [0.375, 5], [0.25, 50], [0.125, 50]];
+        var durations = [];
+        music_params.durations = durations;
+        var duration_checkboxes = document.getElementsByName('durations');
+        var duration_probabilities = document.getElementsByName('duration_probability');
+        for(i = 0; i < duration_checkboxes.length; i++) {
+            if(duration_checkboxes[i].checked){
+                durations.push([parseFloat(duration_checkboxes[i].value), parseInt(duration_probabilities[i].value)]);
+            }
+        }
+        music_params.durations = durations;
+
         var measure_size = $('#measure_size').val();
         if (measure_size) {
             music_params.measure_size = parseInt(measure_size);
@@ -56,7 +76,7 @@
         var renderer = new Vex.Flow.Renderer(canvas, Vex.Flow.Renderer.Backends.CANVAS);
         var ctx = renderer.getContext();
         var stave = new Vex.Flow.Stave(10, 0, canvas.width);
-        stave.addClef("treble").setContext(ctx).draw();
+        stave.addClef('treble').setContext(ctx).draw();
         // Create the notes
         var vexNotes = [];
         var num_beats = 0;
@@ -67,24 +87,25 @@
             num_beats += 4 / duration;
             var note = new Vex.Flow.StaveNote({keys: [pitch], duration: duration.toString()});
             if (pitch.substring(1, 2) == '#') {
-                note.addAccidental(0, new Vex.Flow.Accidental("#"));
+                note.addAccidental(0, new Vex.Flow.Accidental('#'));
             } else if (pitch.substring(1, 2) == 'b') {
-                note.addAccidental(0, new Vex.Flow.Accidental("b"));
+                note.addAccidental(0, new Vex.Flow.Accidental('b'));
             }
             vexNotes.push(note);
         }
 
-        // Create a voice in 4/4
         var voice = new Vex.Flow.Voice({
             num_beats: num_beats,
             beat_value: 4,
             resolution: Vex.Flow.RESOLUTION
         });
 
+        console.log(vexNotes);
+        console.log(numBeats);
         // Add notes to voice
         voice.addTickables(vexNotes);
 
-        // Format and justify the notes to 500 pixels
+        // Format and justify the notes
         var formatter = new Vex.Flow.Formatter().joinVoices([voice]).format([voice], canvas.width - 50);
 
         // Render voice
