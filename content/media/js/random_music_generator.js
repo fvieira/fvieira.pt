@@ -32,7 +32,6 @@
         music_params.pitches = pitches;
 
 
-        // var durations = [[1, 10], [0.875, 1], [0.75, 5], [0.5, 30], [0.375, 5], [0.25, 50], [0.125, 50]];
         var durations = [];
         music_params.durations = durations;
         var duration_checkboxes = document.getElementsByName('durations');
@@ -79,23 +78,38 @@
         stave.addClef('treble').setContext(ctx).draw();
         // Create the notes
         var vexNotes = [];
-        var num_beats = 0;
+        var numBeats = 0;
+        var durationsMap = {
+            '1': 4,
+            '2dd': 3.5,
+            '2d': 3,
+            '2': 2,
+            '4d': 1.5,
+            '4': 1,
+            '8': 0.5,
+        };
         var i;
         for (i = 0; i < notes.length; i++) {
             var pitch = notes[i].pitch;
             var duration = notes[i].duration;
-            num_beats += 4 / duration;
-            var note = new Vex.Flow.StaveNote({keys: [pitch], duration: duration.toString()});
+            numBeats += durationsMap[duration];
+            var note = new Vex.Flow.StaveNote({keys: [pitch], duration: duration});
             if (pitch.substring(1, 2) == '#') {
                 note.addAccidental(0, new Vex.Flow.Accidental('#'));
             } else if (pitch.substring(1, 2) == 'b') {
                 note.addAccidental(0, new Vex.Flow.Accidental('b'));
             }
+            if (duration.substring(1, 2) == 'd') {
+                note.addDotToAll();
+            }
+            if (duration.substring(2, 3) == 'd') {
+                note.addDotToAll();
+            }
             vexNotes.push(note);
         }
 
         var voice = new Vex.Flow.Voice({
-            num_beats: num_beats,
+            num_beats: numBeats,
             beat_value: 4,
             resolution: Vex.Flow.RESOLUTION
         });
@@ -113,57 +127,60 @@
     }
 
     render_notes_on_canvas(document.getElementById('pitches_canvas1'), [
-        {'pitch': 'e/3', 'duration': 1},
-        {'pitch': 'f/3', 'duration': 1},
-        {'pitch': 'f#/3', 'duration': 1},
-        {'pitch': 'g/3', 'duration': 1},
-        {'pitch': 'g#/3', 'duration': 1},
-        {'pitch': 'a/3', 'duration': 1},
-        {'pitch': 'a#/3', 'duration': 1},
-        {'pitch': 'b/3', 'duration': 1},
-        {'pitch': 'c/4', 'duration': 1},
-        {'pitch': 'c#/4', 'duration': 1},
-        {'pitch': 'd/4', 'duration': 1},
-        {'pitch': 'd#/4', 'duration': 1},
+        {'pitch': 'e/3', 'duration': '1'},
+        {'pitch': 'f/3', 'duration': '1'},
+        {'pitch': 'f#/3', 'duration': '1'},
+        {'pitch': 'g/3', 'duration': '1'},
+        {'pitch': 'g#/3', 'duration': '1'},
+        {'pitch': 'a/3', 'duration': '1'},
+        {'pitch': 'a#/3', 'duration': '1'},
+        {'pitch': 'b/3', 'duration': '1'},
+        {'pitch': 'c/4', 'duration': '1'},
+        {'pitch': 'c#/4', 'duration': '1'},
+        {'pitch': 'd/4', 'duration': '1'},
+        {'pitch': 'd#/4', 'duration': '1'},
 
-        {'pitch': 'e/4', 'duration': 1},
-        {'pitch': 'f/4', 'duration': 1},
-        {'pitch': 'f#/4', 'duration': 1},
-        {'pitch': 'g/4', 'duration': 1},
-        {'pitch': 'g#/4', 'duration': 1},
-        {'pitch': 'a/4', 'duration': 1},
-        {'pitch': 'a#/4', 'duration': 1},
+        {'pitch': 'e/4', 'duration': '1'},
+        {'pitch': 'f/4', 'duration': '1'},
+        {'pitch': 'f#/4', 'duration': '1'},
+        {'pitch': 'g/4', 'duration': '1'},
+        {'pitch': 'g#/4', 'duration': '1'},
+        {'pitch': 'a/4', 'duration': '1'},
+        {'pitch': 'a#/4', 'duration': '1'},
     ]);
 
     render_notes_on_canvas(document.getElementById('pitches_canvas2'), [
-        {'pitch': 'b/4', 'duration': 1},
-        {'pitch': 'c/5', 'duration': 1},
-        {'pitch': 'c#/5', 'duration': 1},
-        {'pitch': 'd/5', 'duration': 1},
-        {'pitch': 'd#/5', 'duration': 1},
+        {'pitch': 'b/4', 'duration': '1'},
+        {'pitch': 'c/5', 'duration': '1'},
+        {'pitch': 'c#/5', 'duration': '1'},
+        {'pitch': 'd/5', 'duration': '1'},
+        {'pitch': 'd#/5', 'duration': '1'},
 
-        {'pitch': 'e/5', 'duration': 1},
-        {'pitch': 'f/5', 'duration': 1},
-        {'pitch': 'f#/5', 'duration': 1},
-        {'pitch': 'g/5', 'duration': 1},
-        {'pitch': 'g#/5', 'duration': 1},
-        {'pitch': 'a/5', 'duration': 1},
-        {'pitch': 'a#/5', 'duration': 1},
-        {'pitch': 'b/5', 'duration': 1},
-        {'pitch': 'c/6', 'duration': 1},
-        {'pitch': 'c#/6', 'duration': 1},
-        {'pitch': 'd/6', 'duration': 1},
-        {'pitch': 'd#/6', 'duration': 1},
+        {'pitch': 'e/5', 'duration': '1'},
+        {'pitch': 'f/5', 'duration': '1'},
+        {'pitch': 'f#/5', 'duration': '1'},
+        {'pitch': 'g/5', 'duration': '1'},
+        {'pitch': 'g#/5', 'duration': '1'},
+        {'pitch': 'a/5', 'duration': '1'},
+        {'pitch': 'a#/5', 'duration': '1'},
+        {'pitch': 'b/5', 'duration': '1'},
+        {'pitch': 'c/6', 'duration': '1'},
+        {'pitch': 'c#/6', 'duration': '1'},
+        {'pitch': 'd/6', 'duration': '1'},
+        {'pitch': 'd#/6', 'duration': '1'},
 
-        {'pitch': 'e/6', 'duration': 1},
-        {'pitch': 'e#/6', 'duration': 1},
+        {'pitch': 'e/6', 'duration': '1'},
+        {'pitch': 'e#/6', 'duration': '1'},
     ]);
 
     render_notes_on_canvas(document.getElementById('durations_canvas'), [
-        {'pitch': 'g/4', 'duration': 1},
-        {'pitch': 'g/4', 'duration': 2},
-        {'pitch': 'g/4', 'duration': 4},
-        {'pitch': 'g/4', 'duration': 8},
+        {'pitch': 'g/4', 'duration': '1'},
+        {'pitch': 'g/4', 'duration': '2dd'},
+        {'pitch': 'g/4', 'duration': '2d'},
+        {'pitch': 'g/4', 'duration': '2'},
+        {'pitch': 'g/4', 'duration': '4d'},
+        {'pitch': 'g/4', 'duration': '4'},
+        {'pitch': 'g/4', 'duration': '8'},
     ]);
 
 })();
