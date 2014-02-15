@@ -5,15 +5,17 @@
 {% endblock %}
 
 {% block content %}
-    <div id="foto"><img src="{{ media_url('images/full-photo.jpg') }}" alt="My photo"></div>
-    <div id="aboutme-intro">
-        <div>
-            Hello there, I'm <em>Francisco Vieira</em>,<br />
-            a self-proclaimed<br />
-            <a href="http://www.sans.org/20coolestcareers/#job18">Security-savvy Software Developer</a>!
+    <div class="column-group">
+        <div id="foto" class="large-33 small-100"><img class="push-center" src="{{ media_url('images/full-photo.jpg') }}" alt="My photo"></div>
+        <div id="aboutme-intro" class="large-66 small-100 vertical-space">
+            <div>
+                My name is <em>Francisco Vieira</em>,<br />
+                and I'm a self-proclaimed<br />
+                <a href="http://www.sans.org/20coolestcareers/#job18">Security-savvy Software Developer</a>!
+            </div>
         </div>
     </div>
-    <div id="aboutme-full" class="markdown">
+    <div id="aboutme-full" class="markdown vertical-space">
         {% filter markdown -%}
 Who am I
 ========

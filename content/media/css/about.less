@@ -1,43 +1,12 @@
 @import "common.less";
-@foto-border-width: 0.3em;
-@aboutme-intro-color: #2A7905;
 @aboutme-intro-color: #8D8D8D;
-@top-margin-side: 8%;
 
-/* LAYOUT */
-#foto {
-    float: left;
-    margin-left: @top-margin-side;
-    overflow: hidden;
-    width: 40% - @top-margin-side;
-    max-width: 250px - @foto-border-width;
-    max-height: 327px;
-
-    img {
-        .resizable-img;
-    }
+#foto img {
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
 }
 
-
-#aboutme-intro {
-    float: right;
-    width: 60% - @top-margin-side;
-    margin-right: @top-margin-side;
-
-    div {
-        margin: 15% 0;
-    }
-}
-
-
-#aboutme-full {
-    clear: both;
-    margin: 0 @top-margin-side;
-    padding: 0.1em 0;
-    text-align: justify;
-}
-
-/* DESIGN */
 
 #aboutme-intro {
     font-family: "Passion One", "Impact", sans-serif;
@@ -61,18 +30,6 @@
         font-size: 1.1em;
         font-family: Georgia, Times, "Times New Roman", serif;
         color: #7A7A7A;
+        white-space: nowrap;
     }
-}
-
-#foto {
-    border: @foto-border-width solid #CCC;
-    .rounded-corners;
-
-    img {
-        margin: @foto-border-width*(-1em) 0;
-    }
-}
-
-#aboutme-full {
-    color: #333;
 }

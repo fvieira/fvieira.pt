@@ -1,118 +1,56 @@
 @import "common.less";
 
-/* LAYOUT */
-
-* {
-    -moz-box-sizing: border-box;
-    -webkit-box-sizing: border-box;
-    box-sizing: border-box;
-}
-
-body {
-    width: 100%;
-    font-size: 100%;
-}
-
-#header-wrapper {
-    height: @header-height;
-    margin: auto;
-}
-
-#logo {
-    float: left;
-    padding: 0 1em;
-    line-height: @header-height;
-}
-
-#main-nav {
-    ul {
-        padding: 0 1em;
-        float: right;
-    }
-
-    .tab {
-        float: left;
-
-        a {
-            display: block;
-            line-height: @header-height;
-            padding: 0 1em;
-        }
-    }
-}
-
-
-
-#content {
-    clear: both;
-    margin: auto;
-    margin-top: 2em;
-}
-
-#header-wrapper,
-#content {
-    font-size: @content-font-size;
-    max-width: @content-max-width;
-}
-
-/* DESIGN */
-
 body {
     background-color: #F5F5F5;
 }
 
 header {
-    background-color: #222;
+    background: black;
 }
 
-a {
-    color: #007ED5;
-    text-decoration: underline;
+#content {
+    font-size: @content-font-size;
+    max-width: @content-max-width;
 }
 
-a:hover {
-    text-decoration: none;
+nav.ink-navigation ul.menu li a.logo:hover {
+    background: none;
 }
 
-a:visited {
-    color: #8B8E92;
-    text-decoration: underline;
-}
-
-#logo {
+.logo {
     font-family: "Dejavu Serif", "Courier New", "Arial", sans-serif;
     color: #DDD;
     font-weight: bold;
 }
 
-#main-nav {
-    font-family: Georgia, serif;
-    font-weight: bold;
+.ink-navigation ul.vertical li button {
+    background: none;
+    border: none;
+    outline: none;
+    position: absolute;
+    top: .6em;
+    right: 0;
+    padding: 0;
+    color: #bbbbbb;
 
-    .tab a {
-        color: #BBB;
-        text-decoration: none;
+    span {
+        font-size: 1.5em;
     }
+}
 
-    .tab a:hover {
-        background-color: #333;
-        color: white;
-        .transition(~"background-color, color", 125ms, ease-in-out, 0);
-    }
-
-    .tab.active a {
-        .linear-gradient(#080808, #3C3C3C);
-        .box-shadow (0, 0, 2px, 0, rgba(255, 255, 255, 0.3));
-        color: #FFF;
-    }
+.ink-navigation ul li.active a {
+    background: #272727;
+    -webkit-box-shadow: none;
+    -moz-box-shadow: none;
+    box-shadow: none;
 }
 
 /* MARKDOWN */
 .markdown {
     h1 {
-        font-size: 1.2em;
+        font-size: 1.4em;
         font-weight: bold;
-        margin: 1.5em 0 0.5em 0em;
+        margin: 1.5em 0 -0.3em 0em;
         font-family: Georgia, Times, 'Times New Roman', serif;
         font-family: Arial;
     }
@@ -120,7 +58,7 @@ a:visited {
     p {
         font-family: Georgia, Times, 'Times New Roman', serif;
         line-height: 1.5em;
-        font-size: 0.9em;
+        font-size: 1.1em;
     }
 
     em {
