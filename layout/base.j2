@@ -3,6 +3,8 @@
 <html>
     <head>
         <title>{{ author.name }}'s Website</title>
+        <meta name="HandheldFriendly" content="true" />
+        <meta name="viewport" content="width=device-width, height=device-height, user-scalable=no" />
         <link type="text/css" rel="stylesheet" href="{{ media_url('css/ink-min.css') }}">
         <link type="text/css" rel="stylesheet" href="{{ media_url('css/style.css') }}">
         {% block extra_style %}{% endblock %}
