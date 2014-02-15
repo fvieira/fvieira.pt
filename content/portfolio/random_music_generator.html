@@ -13,35 +13,36 @@
 {% endblock %}
 
 {% block content %}
+<h1>Random Music Generator</h1>
+
 <div class="space_top">
     <p>Pitches:</p>
     {% set default_pitches = [-8, -7, -5, -3, -1, 0, 2, 4, 5, 7, 9, 11, 12, 14, 16, 17, 19, 21, 23, 24, 26, 28] %}
     <canvas id="pitches_canvas1" width="950" height="120"></canvas>
-    <div style="margin-left: 25px">
+    <div style="height: 50px">
         {% for pitch in range(-8, 11) %}
-        <input type="checkbox" name="pitches" value="{{ pitch }}" style="margin-left: 26px" {% if pitch in default_pitches %}checked{% endif %}>
+        <input type="checkbox" name="pitches" value="{{ pitch }}" style="position: absolute; margin-left: {{ 5 + loop.index * 47}}px" {% if pitch in default_pitches %}checked{% endif %}>
         {% endfor %}
     </div>
     <canvas id="pitches_canvas2" width="950" height="100"></canvas>
-    <div style="margin-left: 25px">
+    <div style="height: 50px">
         {% for pitch in range(11, 30) %}
-        <input type="checkbox" name="pitches" value="{{ pitch }}" style="margin-left: 26px" {% if pitch in default_pitches %}checked{% endif %}>
+        <input type="checkbox" name="pitches" value="{{ pitch }}" style="position: absolute; margin-left: {{ 5 + loop.index * 47}}px" {% if pitch in default_pitches %}checked{% endif %}>
         {% endfor %}
     </div>
 </div>
 
-<div class="space_top">
+<div class="space_top" style="martin-top: 50px">
     <p>Durations:</p>
     <canvas id="durations_canvas" width="500" height="100"></canvas>
-    <div>
-        {% for duration, checked, margin_left in [("1", True, 53), ("0.875", False, 77), ("0.75", False, 70),
-                                                  ("0.5", True, 55), ("0.375", False, 36), ("0.25", True, 28), ("0.125", True, 22)] %}
-        <input type="checkbox" name="durations" value="{{ duration }}" style="margin-left: {{ margin_left }}px" {% if checked %}checked{% endif %}>
+    <div style="height: 20px">
+        {% for duration, checked, margin_left in [("1", True, 53), ("0.875", False, 150), ("0.75", False, 240), ("0.5", True, 315), ("0.375", False, 375), ("0.25", True, 423), ("0.125", True, 465)] %}
+        <input type="checkbox" name="durations" value="{{ duration }}" style="position: absolute; margin-left: {{ margin_left }}px" {% if checked %}checked{% endif %}>
         {% endfor %}
     </div>
-    <div>
-        {% for duration_probability, margin_left in [("10", 53), ("1", 55), ("5", 48), ("30", 33), ("5", 12), ("50", 6), ("50", 0)] %}
-        <input type="text" name="duration_probability" size="3" value="{{ duration_probability }}" style="margin-left: {{ margin_left }}px"/>
+    <div style="height: 50px">
+        {% for duration_probability, margin_left in [("10", 53), ("1", 150), ("5", 240), ("30", 315), ("5", 375), ("50", 423), ("50", 465)] %}
+        <input type="text" name="duration_probability" size="2" value="{{ duration_probability }}" style="position: absolute; margin-left: {{ margin_left }}px"/>
         {% endfor %}
     </div>
 </div>
