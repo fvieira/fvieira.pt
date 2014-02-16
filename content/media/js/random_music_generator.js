@@ -2,7 +2,7 @@
     var HOST = 'http://api.random-music-generator.fvieira.pt/';
 
     function generate_random_music() {
-        $('#download_buttons a').hide();
+        $('#download_buttons button').hide();
         $('#waiting_message').show();
         $.ajax({
             type: 'POST',
@@ -64,9 +64,9 @@
 
     function activate_download_button(output_type, music_id) {
         var url = HOST + 'get_music_as_' + output_type + '/' + music_id;
-        var $download_link = $('#get_music_as_' + output_type + '_btn');
-        $download_link.attr('href', url);
-        $download_link.show();
+        var $download_button = $('#get_music_as_' + output_type + '_btn');
+        $download_button.find('a').attr('href', url);
+        $download_button.show();
     }
 
     document.getElementById('generate_random_music_btn').onclick = generate_random_music;
@@ -140,6 +140,9 @@
         {'pitch': 'd/4', 'duration': '1'},
         {'pitch': 'd#/4', 'duration': '1'},
 
+    ]);
+
+    render_notes_on_canvas(document.getElementById('pitches_canvas2'), [
         {'pitch': 'e/4', 'duration': '1'},
         {'pitch': 'f/4', 'duration': '1'},
         {'pitch': 'f#/4', 'duration': '1'},
@@ -147,15 +150,14 @@
         {'pitch': 'g#/4', 'duration': '1'},
         {'pitch': 'a/4', 'duration': '1'},
         {'pitch': 'a#/4', 'duration': '1'},
-    ]);
-
-    render_notes_on_canvas(document.getElementById('pitches_canvas2'), [
         {'pitch': 'b/4', 'duration': '1'},
         {'pitch': 'c/5', 'duration': '1'},
         {'pitch': 'c#/5', 'duration': '1'},
         {'pitch': 'd/5', 'duration': '1'},
         {'pitch': 'd#/5', 'duration': '1'},
+    ]);
 
+    render_notes_on_canvas(document.getElementById('pitches_canvas3'), [
         {'pitch': 'e/5', 'duration': '1'},
         {'pitch': 'f/5', 'duration': '1'},
         {'pitch': 'f#/5', 'duration': '1'},
@@ -168,9 +170,6 @@
         {'pitch': 'c#/6', 'duration': '1'},
         {'pitch': 'd/6', 'duration': '1'},
         {'pitch': 'd#/6', 'duration': '1'},
-
-        {'pitch': 'e/6', 'duration': '1'},
-        {'pitch': 'e#/6', 'duration': '1'},
     ]);
 
     render_notes_on_canvas(document.getElementById('durations_canvas'), [

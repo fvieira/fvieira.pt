@@ -6,69 +6,95 @@
 {% endblock %}
 {% block extra_style %}
 <style>
-.space_top {
-    margin-top: 20px;
+.page_title {
+    text-align: center;
+}
+
+#download_buttons button a {
+    text-decoration: none;
+}
+
+#duration_probabilities input {
+    width: 40px;
+}
+
+.text_configs input {
+    margin-left: 10px;
 }
 </style>
 {% endblock %}
 
-{% block content %}
-<h1>Random Music Generator</h1>
 
-<div class="space_top">
+{% block content %}
+<h1 class="page_title">Random Music Generator</h1>
+
+<div class="vertical-space">
     <p>Pitches:</p>
-    {% set default_pitches = [-8, -7, -5, -3, -1, 0, 2, 4, 5, 7, 9, 11, 12, 14, 16, 17, 19, 21, 23, 24, 26, 28] %}
-    <canvas id="pitches_canvas1" width="950" height="120"></canvas>
-    <div style="height: 50px">
-        {% for pitch in range(-8, 11) %}
-        <input type="checkbox" name="pitches" value="{{ pitch }}" style="position: absolute; margin-left: {{ 5 + loop.index * 47}}px" {% if pitch in default_pitches %}checked{% endif %}>
+    {% set default_pitches = [
+        -8, -7, -5, -3, -1,  0,  2,
+         4,  5,  7,  9, 11, 12, 14,
+        16, 17, 19, 21, 23, 24, 26] %}
+    <canvas id="pitches_canvas1" width="750" height="120"></canvas>
+    <div style="height: 0px">
+        {% for pitch in range(-8, 4) %}
+        <input type="checkbox" name="pitches" value="{{ pitch }}" style="position: absolute; margin-left: {{ loop.index * 58 - 5}}px; margin-top: -10px" {% if pitch in default_pitches %}checked{% endif %}>
         {% endfor %}
     </div>
-    <canvas id="pitches_canvas2" width="950" height="100"></canvas>
-    <div style="height: 50px">
-        {% for pitch in range(11, 30) %}
-        <input type="checkbox" name="pitches" value="{{ pitch }}" style="position: absolute; margin-left: {{ 5 + loop.index * 47}}px" {% if pitch in default_pitches %}checked{% endif %}>
+    <canvas id="pitches_canvas2" width="750" height="120"></canvas>
+    <div style="height: 0px">
+        {% for pitch in range(4, 16) %}
+        <input type="checkbox" name="pitches" value="{{ pitch }}" style="position: absolute; margin-left: {{ loop.index * 58 - 5}}px; margin-top: -40px" {% if pitch in default_pitches %}checked{% endif %}>
+        {% endfor %}
+    </div>
+    <canvas id="pitches_canvas3" width="750" height="120"></canvas>
+    <div style="height: 30px">
+        {% for pitch in range(16, 28) %}
+        <input type="checkbox" name="pitches" value="{{ pitch }}" style="position: absolute; margin-left: {{ loop.index * 58 - 5}}px; margin-top: -40px" {% if pitch in default_pitches %}checked{% endif %}>
         {% endfor %}
     </div>
 </div>
 
-<div class="space_top" style="martin-top: 50px">
+<div class="vertical-space" style="martin-top: 50px">
     <p>Durations:</p>
-    <canvas id="durations_canvas" width="500" height="100"></canvas>
+    <canvas id="durations_canvas" width="750" height="100"></canvas>
     <div style="height: 20px">
-        {% for duration, checked, margin_left in [("1", True, 53), ("0.875", False, 150), ("0.75", False, 240), ("0.5", True, 315), ("0.375", False, 375), ("0.25", True, 423), ("0.125", True, 465)] %}
+        {% for duration, checked, margin_left in [("1", True, 53), ("0.875", False, 215), ("0.75", False, 365), ("0.5", True, 488), ("0.375", False, 580), ("0.25", True, 650), ("0.125", True, 710)] %}
         <input type="checkbox" name="durations" value="{{ duration }}" style="position: absolute; margin-left: {{ margin_left }}px" {% if checked %}checked{% endif %}>
         {% endfor %}
     </div>
-    <div style="height: 50px">
-        {% for duration_probability, margin_left in [("10", 53), ("1", 150), ("5", 240), ("30", 315), ("5", 375), ("50", 423), ("50", 465)] %}
-        <input type="text" name="duration_probability" size="2" value="{{ duration_probability }}" style="position: absolute; margin-left: {{ margin_left }}px"/>
+    <div id="duration_probabilities" style="height: 50px">
+        {% for duration_probability, margin_left in [("10", 53), ("1", 215), ("5", 365), ("30", 488), ("5", 580), ("50", 650), ("50", 710)] %}
+        <input type="text" name="duration_probability" value="{{ duration_probability }}" style="position: absolute; margin-left: {{ margin_left }}px"/>
         {% endfor %}
     </div>
 </div>
 
-<div class="space_top">
-    <p>Measure size: <input type="text" name="measure_size" id="measure_size" value="4"/></p>
-</div>
-<div class="space_top">
-    <p>Rest Probability: <input type="text" name="rest_probability" id="rest_probability" value="0.20"/></p>
-</div>
-<div class="space_top">
-    <p>Tie Probability: <input type="text" name="tie_probability" id="tie_probability" value="0.3333"/></p>
-</div>
-<div class="space_top">
-    <p>Length: <input type="text" name="length" id="length" value="50"/></p>
+<div class="text_configs">
+    <div class="vertical-space">
+        <p>Measure size: <input type="text" name="measure_size" id="measure_size" value="4"/></p>
+    </div>
+    <div class="vertical-space">
+        <p>Rest Probability: <input type="text" name="rest_probability" id="rest_probability" value="0.20"/></p>
+    </div>
+    <div class="vertical-space">
+        <p>Tie Probability: <input type="text" name="tie_probability" id="tie_probability" value="0.3333"/></p>
+    </div>
+    <div class="vertical-space">
+        <p>Length: <input type="text" name="length" id="length" value="50"/></p>
+    </div>
 </div>
 
-<div class="space_top">
+<div class="vertical-space">
     <input type="button" id="generate_random_music_btn" name="submit" value="Generate random music"/>
 </div>
 
-<div id="download_buttons" class="space_top">
+<div class="vertical-space">
     <p id="waiting_message" style="display:none;">Generating random files, please wait a moment...</p>
-    <a id="get_music_as_ly_btn" style="display: none;">Download as .ly</a>
-    <a id="get_music_as_pdf_btn" style="display: none;">Download as .pdf</a>
-    <a id="get_music_as_midi_btn" style="display: none;">Download as .midi</a>
+    <div id="download_buttons" class="button-group">
+        <button id="get_music_as_pdf_btn" class="ink-button" style="display: none"><a>Download as .pdf</a></button>
+        <button id="get_music_as_midi_btn" class="ink-button" style="display: none"><a>Download as .midi</a></button>
+        <button id="get_music_as_ly_btn" class="ink-button" style="display: none"><a>Download as .ly</a></button>
+    </div>
 </div>
 
 <script type="text/javascript" src="{{ media_url('js/random_music_generator.js') }}"></script>
