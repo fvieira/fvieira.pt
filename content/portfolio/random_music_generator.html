@@ -1,15 +1,10 @@
 {% extends "base.j2" %}
-{% import "macros.j2" as macros %}
 {% block extra_scripts %}
     <script type="text/javascript" src="{{ media_url('js/jquery-1.10.2.min.js') }}"></script>
     <script type="text/javascript" src="{{ media_url('js/vexflow-min.js') }}"></script>
 {% endblock %}
 {% block extra_style %}
 <style>
-.page_title {
-    text-align: center;
-}
-
 #download_buttons button a {
     text-decoration: none;
 }

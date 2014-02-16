@@ -1,4 +1,6 @@
-@import "common.less";
+@content-font-size: 1.2em;
+@content-max-width: 850px;
+@aboutme-intro-color: #8D8D8D;
 
 body {
     background-color: #F5F5F5;
@@ -49,6 +51,10 @@ header {
     box-shadow: none;
 }
 
+.page_title {
+    text-align: center;
+}
+
 /* MARKDOWN */
 .markdown {
     h1 {
@@ -73,4 +79,48 @@ header {
         font-weight: bold;
     }
 
+}
+
+/* BLOG */
+#under-contruction {
+    font-size: 5em;
+    font-weight: bold;
+    margin: 1em 0 0 0;
+    text-align: center;
+}
+
+
+/* ABOUT ME */
+
+#foto img {
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+}
+
+
+#aboutme-intro {
+    font-family: "Passion One", "Impact", sans-serif;
+    font-size: 1.5em;
+    color: @aboutme-intro-color;
+    line-height: 1.5em;
+    text-align: center;
+
+    a {
+        text-decoration: none;
+        border-bottom: 1px dashed darken(@aboutme-intro-color, 10%);
+        color: @aboutme-intro-color;
+    }
+
+    a:hover {
+       color: darken(@aboutme-intro-color, 10%);
+       border-bottom-color: darken(@aboutme-intro-color, 20%);
+    }
+
+    em {
+        font-size: 1.1em;
+        font-family: Georgia, Times, "Times New Roman", serif;
+        color: #7A7A7A;
+        white-space: nowrap;
+    }
 }

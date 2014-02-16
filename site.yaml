@@ -28,7 +28,8 @@ context:
             tracking_id: UA-40871161-1
         content:
             menu:
-                - {name: About me, url: about.html, index: true}
+                - {name: About me, url: /}
+                - {name: Portfolio, url: portfolio/}
 
 # This defines meta data on the whole site.
 meta:
@@ -42,3 +43,8 @@ meta:
 jinja2:
     extensions:
         - jinja_extensions.YearsFrom
+
+urlcleaner:
+    index_file_names:
+        - index.html
+    append_slash: true
