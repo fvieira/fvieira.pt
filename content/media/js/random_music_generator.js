@@ -2,7 +2,7 @@
     var HOST = 'http://api.random-music-generator.fvieira.pt/';
 
     function generate_random_music() {
-        $('#download_buttons button').hide();
+        $('#download_buttons a').hide();
         $('#waiting_message').show();
         $.ajax({
             type: 'POST',
@@ -64,9 +64,9 @@
 
     function activate_download_button(output_type, music_id) {
         var url = HOST + 'get_music_as_' + output_type + '/' + music_id;
-        var $download_button = $('#get_music_as_' + output_type + '_btn');
-        $download_button.find('a').attr('href', url);
-        $download_button.show();
+        var $download_link = $('#get_music_as_' + output_type + '_link');
+        $download_link.attr('href', url);
+        $download_link.show();
     }
 
     document.getElementById('generate_random_music_btn').onclick = generate_random_music;
@@ -114,8 +114,6 @@
             resolution: Vex.Flow.RESOLUTION
         });
 
-        console.log(vexNotes);
-        console.log(numBeats);
         // Add notes to voice
         voice.addTickables(vexNotes);
 
