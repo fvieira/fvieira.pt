@@ -55,6 +55,11 @@ header {
     text-align: center;
 }
 
+footer {
+    text-align: center;
+    padding: 1em;
+}
+
 /* MARKDOWN */
 .markdown {
     h1 {
@@ -122,5 +127,39 @@ header {
         font-family: Georgia, Times, "Times New Roman", serif;
         color: #7A7A7A;
         white-space: nowrap;
+    }
+}
+
+
+/* PORTFOLIO */
+
+
+#portfolio {
+    .project {
+        border-radius: 4px;
+        -webkit-box-shadow: 0 2px 3px 0 #dddddd;
+        -moz-box-shadow: 0 2px 3px 0 #dddddd;
+        box-shadow: 0 2px 3px 0 #dddddd;
+        border: 1px solid #BBB;
+        background-color: #FFF;
+        padding: 1em;
+        margin-top: 1em;
+
+        img {
+            border: 1px solid #DDD;
+        }
+    }
+
+    .project * {
+        // border: 1px solid black;
+    }
+
+    .proj_title {
+        text-align: center;
+    }
+
+    label {
+        vertical-align: middle;
+        display: inline-block;
     }
 }

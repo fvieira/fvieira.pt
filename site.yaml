@@ -29,7 +29,7 @@ context:
         content:
             menu:
                 - {name: About me, url: /}
-                - {name: Portfolio, url: portfolio/}
+                - {name: Portfolio, url: portfolio/, sub_urls: ['/portfolio/random_music_generator']}
 
 # This defines meta data on the whole site.
 meta:
@@ -48,3 +48,5 @@ urlcleaner:
     index_file_names:
         - index.html
     append_slash: true
+    strip_extensions:
+        - html

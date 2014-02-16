@@ -3,7 +3,8 @@
 {% macro menu_options() -%}
     {% for section in content.menu %}
         {% set section_url = content_url(section.url) %}
-        {% if section_url == content_url(resource.url) %}
+        {% set resource_url = content_url(resource.url) %}
+        {% if section_url == resource_url or resource_url in section.sub_urls %}
             {% set active = " active" %}
         {% else %}
             {% set active = "" %}
@@ -55,5 +56,8 @@
             {% block content %}{% endblock %}
             </div>
         </div>
+        <footer>
+        <span class="powered-by">Powered by <a href="http://ink.sapo.pt/">Ink</a></span>
+        </footer>
     </body>
 </html>
