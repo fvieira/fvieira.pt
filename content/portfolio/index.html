@@ -1,13 +1,15 @@
 {% extends "base.j2" %}
 {% import "macros.j2" as macros %}
 
-{% macro portfolio_project(proj_url, proj_name, img_url) %}
+{% macro portfolio_project(proj_url, proj_name, img_url, description, techs_used) %}
         <div class="project column-group half-vertical-gutters">
             <h4 class="proj_title large-100"><a href="{{ proj_url }}">{{ proj_name }}</a></h2>
             <label class="large-25">Screenshot:</label>
-            <div class="image_container large-75"><img src="{{ media_url(img_url) }}"/></div>
+            <div class="image_container large-75"><a href="{{ proj_url }}"><img src="{{ media_url(img_url) }}"/></a></div>
             <label class="large-25">Description:</label>
-            <p class="proj_description large-75">{{ caller() }}</p>
+            <p class="proj_description large-75">{{ description }}</p>
+            <label class="large-25">Technologies used:</label>
+            <div class="proj_techs_used large-75"><ul>{% for tech_used in techs_used %}<li>{{ tech_used }}</li>{% endfor %}</ul></div>
         </div>
 {% endmacro %}
 
@@ -15,17 +17,21 @@
     <div id="portfolio">
         <h1 class="page_title">Portfolio</h1>
 
-        {% call portfolio_project('/', 'fvieira.pt', 'images/fvieira_pt.png') %}
-            {{ macros.lorem_ipsum() }}
-        {% endcall %}
+        <p class="portfolio_description">A list of my pet projects, mostly open-source ones.</p>
 
-        {% call portfolio_project('https://github.com/sapo/meocloud-cli/', 'MEO Cloud CLI Linux', 'images/meocloud_cli.png') %}
-            {{ macros.lorem_ipsum() }}
-        {% endcall %}
+        {{ portfolio_project('/', 'fvieira.pt', 'images/fvieira_pt.png',
+            'My very own webpage!',
+            [
+                '<a href="https://github.com/hyde/hyde">Hyde</a> - For asdfsdaf',
+                '<a href="http://jinja.pocoo.org/docs/">Jinja2</a> - For asdfsdaf',
+                '<a href="http://lesscss.org/">Less</a> - For asdfsdaf',
+                '<a href="http://ink.sapo.pt/">Ink</a> - For asdfsdaf',
+            ]
+        ) }}
 
-        {% call portfolio_project('/portfolio/random_music_generator', 'Random Music Generator', 'images/rmg.png') %}
-            {{ macros.lorem_ipsum() }}
-        {% endcall %}
+        {{ portfolio_project('https://github.com/sapo/meocloud-cli/', 'MEO Cloud CLI Linux', 'images/meocloud_cli.png', macros.lorem_ipsum(), ['blabla']) }}
+
+        {{ portfolio_project('/portfolio/random_music_generator', 'Random Music Generator', 'images/rmg.png', macros.lorem_ipsum(), ['poiupoiu']) }}
 
     </div>
 {% endblock %}
