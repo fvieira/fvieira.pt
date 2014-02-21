@@ -1,7 +1,7 @@
 {% extends "base.j2" %}
 {% import "macros.j2" as macros %}
 
-{% macro portfolio_project(proj_url, proj_name, img_url, description, techs_used) %}
+{% macro portfolio_project(proj_url, proj_name, img_url, description, techs_used, creation_date) %}
         <div class="project column-group half-vertical-gutters">
             <h4 class="proj_title large-100"><a href="{{ proj_url }}">{{ proj_name }}</a></h2>
             <label class="large-25">Screenshot:</label>
@@ -10,6 +10,8 @@
             <p class="proj_description large-75">{{ description }}</p>
             <label class="large-25">Technologies used:</label>
             <div class="proj_techs_used large-75"><ul>{% for tech_used in techs_used %}<li>{{ tech_used }}</li>{% endfor %}</ul></div>
+            <label class="large-25">Created on:</label>
+            <p class="proj_creation_date large-75">{{ creation_date }}</p>
         </div>
 {% endmacro %}
 
@@ -22,16 +24,34 @@
         {{ portfolio_project('/', 'fvieira.pt', 'images/fvieira_pt.png',
             'My very own webpage!',
             [
-                '<a href="https://github.com/hyde/hyde">Hyde</a> - For asdfsdaf',
-                '<a href="http://jinja.pocoo.org/docs/">Jinja2</a> - For asdfsdaf',
-                '<a href="http://lesscss.org/">Less</a> - For asdfsdaf',
-                '<a href="http://ink.sapo.pt/">Ink</a> - For asdfsdaf',
-            ]
+                '<a href="https://aws.amazon.com/s3">Amazon S3</a> - To host the whole static website.',
+                '<a href="https://github.com/hyde/hyde">Hyde</a> - To create a static website as if I was programming in Django.',
+                '<a href="http://jinja.pocoo.org/docs/">Jinja2</a> - Templates with inheritance, macros, custom filters, loops and variables.',
+                '<a href="http://lesscss.org/">Less</a> - CSS with nested selectors, mixins and constants.',
+                '<a href="http://ink.sapo.pt/">Ink</a> - Because I'"'"'m not a designer, but with Ink I almost look like one.',
+            ],
+            'Feb 2014',
         ) }}
 
-        {{ portfolio_project('https://github.com/sapo/meocloud-cli/', 'MEO Cloud CLI Linux', 'images/meocloud_cli.png', macros.lorem_ipsum(), ['blabla']) }}
+        {{ portfolio_project('https://github.com/sapo/meocloud-cli/', 'MEO Cloud CLI Linux', 'images/meocloud_cli.png',
+            'A command line interface for <a href="https://meocloud.pt/">MEO Cloud'"'"'s</a> desktop client.',
+            [
+                'Python - Everywhere!',
+                'Thrift - For communicating with the synchronization core.',
+                'Gevent - Threads without threads.',
+            ],
+            'Jan 2014',
+        ) }}
 
-        {{ portfolio_project('/portfolio/random_music_generator', 'Random Music Generator', 'images/rmg.png', macros.lorem_ipsum(), ['poiupoiu']) }}
+        {{ portfolio_project('/portfolio/random_music_generator', 'Random Music Generator', 'images/rmg.png',
+            'A random music generator. Generates music sheets in PDF, music itself on MIDI, or the music source on Lylipond files.<br />
+            It is badly (none at all) documentend as it was little more than a weekends experiment, but if you'"'"'d like to use it, feel free to tell me and I might put on the effort of documenting or even improving it.',
+            [
+                'poiupoiu'
+            ],
+            'Feb 2014',
+        ) }}
 
     </div>
 {% endblock %}
+
