@@ -15,7 +15,7 @@
         {% filter markdown -%}
 Who am I
 ========
-I'm {% years_from 1987, 11, 23 %} years old, I'm Portuguese, and I live in Lisbon since I went to the faculty.
+I'm <span class="my_age">{% years_from 1987, 11, 23 %}</span> years old, I'm Portuguese, and I live in Lisbon since I went to the faculty.
 I like programming, intelectual challenges, and above all, learning new things and technologies.
 
 On my free time, whenever I'm not programming, I'm most likely hanging out with friends,
@@ -65,4 +65,12 @@ but I've also [completed]({{ media_url('pdf/crypto_coursera_cert.pdf')}}) a [cou
 from Coursera which gave me more than enough knowledge of crypto.
         {%- endfilter %}
     </div>
+    <script type="text/javascript">
+    function getAge(d1, d2){
+        d2 = d2 || new Date();
+        var diff = d2.getTime() - d1.getTime();
+        return Math.floor(diff / (1000 * 60 * 60 * 24 * 365.25));
+    }
+    document.getElementsByClassName('my_age')[0].innerHTML = getAge(new Date(1987, 10, 23));
+    </script>
 {% endblock %}
