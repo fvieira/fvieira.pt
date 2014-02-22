@@ -1,7 +1,7 @@
 {% extends "base.j2" %}
 {% import "macros.j2" as macros %}
 
-{% macro portfolio_project(proj_id, proj_url, proj_name, img_url, description, techs_used, creation_date) %}
+{% macro portfolio_project(proj_id, proj_url, proj_name, img_url, description, techs_used, creation_date, source_url) %}
         <div id="{{ proj_id }}" class="project column-group half-vertical-gutters">
             <h4 class="proj_title large-100"><a href="{{ proj_url }}">{{ proj_name }}</a></h2>
             <label class="large-25">Screenshot:</label>
@@ -12,6 +12,8 @@
             <div class="proj_techs_used large-75"><ul>{{ techs_used|unordered_list }}</ul></div>
             <label class="large-25">Created on:</label>
             <p class="proj_creation_date large-75">{{ creation_date }}</p>
+            <label class="large-25">Source:</label>
+            <p class="proj_creation_date large-75"><a href="{{ source_url }}">{{ source_url }}</a></p>
         </div>
 {% endmacro %}
 
@@ -19,7 +21,7 @@
     <div id="portfolio">
         <h1 class="page_title">Portfolio</h1>
 
-        <p class="portfolio_description">A list of some of my projects. Most are pet projects done on my free time, but some were done as part of my job and latter open-sourced.</p>
+        <p class="portfolio_description">A list of some of my open-source projects. Most are pet projects done on my free time, but some were done as part of my job and latter open-sourced.</p>
 
         {{ portfolio_project('fvieira_pt', '/', 'fvieira.pt', 'images/fvieira_pt.png',
             'My very own webpage!',
@@ -31,6 +33,7 @@
                 '<a href="http://ink.sapo.pt/">Ink</a> - Because I\'m not a designer, but with Ink I almost look like one.',
             ],
             'Work in progress',
+            'https://github.com/fvieira/fvieira.pt',
         ) }}
 
         {{ portfolio_project('meocloud_cli', 'https://github.com/sapo/meocloud-cli/', 'MEO Cloud CLI Linux', 'images/meocloud_cli.png',
@@ -41,6 +44,7 @@
                 '<a href="http://gevent.org/">Gevent</a> - Threads without threads.',
             ],
             'Dec 2013',
+            'https://github.com/sapo/meocloud-cli/',
         ) }}
 
         {{ portfolio_project('rmg', '/portfolio/random_music_generator', 'Random Music Generator', 'images/rmg.png',
@@ -65,6 +69,7 @@
                 ],
             ],
             'Feb 2014',
+            'https://github.com/fvieira/fvieira.pt',
         ) }}
 
     </div>
