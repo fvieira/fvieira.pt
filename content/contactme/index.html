@@ -1,0 +1,32 @@
+{% extends "base.j2" %}
+
+{% block content %}
+<div class="contacts">
+    <h1 class="page_title">Contacts</h1>
+    <div>
+        <label class="large-35 small-100" id="lebal_liame"></label>
+        <div class="large-65 small-100"><img id="liame_ym" src="{{ media_url('images/email.png') }}"/></div>
+        <div class="large-100"></div>
+    </div>
+    <div>
+        <label class="large-35 small-100">Github:</label>
+        <div class="large-65 small-100"><a href="https://github.com/fvieira/">https://github.com/fvieira/</a></div>
+        <div class="large-100"></div>
+    </div>
+    <div>
+        <label class="large-35 small-100">LinkedIn:</label>
+        <div class="large-65 small-100"><a href="https://www.linkedin.com/in/fjmvieira">https://www.linkedin.com/in/fjmvieira</a></div>
+        <div class="large-100"></div>
+    </div>
+</div>
+
+
+<script type="text/javascript">
+    function z(s) {
+        return s.split("").reverse().join("").replace(/[a-zA-Z]/g,function(c){return String.fromCharCode((c<="Z"?90:122)>=(c=c.charCodeAt(0)+13)?c:c-26);});
+    }
+    document.getElementById('lebal_liame').innerHTML = z(':yvnzR');
+    document.getElementById('liame_ym').setAttribute('alt', z('zbp gbq yvnzt gn nevrvi gbq z gbq w gbq bpfvpanes'));
+</script>
+
+{% endblock %}

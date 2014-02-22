@@ -30,6 +30,7 @@ context:
             menu:
                 - {name: About me, url: /}
                 - {name: Portfolio, url: portfolio/, sub_urls: ['/portfolio/random_music_generator']}
+                - {name: Contacts, url: contactme/,}
 
 # This defines meta data on the whole site.
 meta:
