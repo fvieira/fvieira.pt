@@ -9,7 +9,7 @@
             <label class="large-25">Description:</label>
             <p class="proj_description large-75">{{ description }}</p>
             <label class="large-25">Technologies used:</label>
-            <div class="proj_techs_used large-75"><ul>{% for tech_used in techs_used %}<li>{{ tech_used }}</li>{% endfor %}</ul></div>
+            <div class="proj_techs_used large-75"><ul>{{ techs_used|unordered_list }}</ul></div>
             <label class="large-25">Created on:</label>
             <p class="proj_creation_date large-75">{{ creation_date }}</p>
         </div>
@@ -19,7 +19,7 @@
     <div id="portfolio">
         <h1 class="page_title">Portfolio</h1>
 
-        <p class="portfolio_description">A list of my pet projects, mostly open-source ones.</p>
+        <p class="portfolio_description">A list of some of my projects. Most are pet projects done on my free time, but some were done as part of my job and latter open-sourced.</p>
 
         {{ portfolio_project('/', 'fvieira.pt', 'images/fvieira_pt.png',
             'My very own webpage!',
@@ -28,26 +28,41 @@
                 '<a href="https://github.com/hyde/hyde">Hyde</a> - To create a static website as if I was programming in Django.',
                 '<a href="http://jinja.pocoo.org/docs/">Jinja2</a> - Templates with inheritance, macros, custom filters, loops and variables.',
                 '<a href="http://lesscss.org/">Less</a> - CSS with nested selectors, mixins and constants.',
-                '<a href="http://ink.sapo.pt/">Ink</a> - Because I'"'"'m not a designer, but with Ink I almost look like one.',
+                '<a href="http://ink.sapo.pt/">Ink</a> - Because I\'m not a designer, but with Ink I almost look like one.',
             ],
-            'Feb 2014',
+            'Work in progress',
         ) }}
 
         {{ portfolio_project('https://github.com/sapo/meocloud-cli/', 'MEO Cloud CLI Linux', 'images/meocloud_cli.png',
-            'A command line interface for <a href="https://meocloud.pt/">MEO Cloud'"'"'s</a> desktop client.',
+            'A command line interface for <a href="https://meocloud.pt/">MEO Cloud\'s</a> desktop client.',
             [
-                'Python - Everywhere!',
-                'Thrift - For communicating with the synchronization core.',
-                'Gevent - Threads without threads.',
+                '<a href="http://www.python.org/">Python</a> - Everywhere!',
+                '<a href="https://thrift.apache.org/">Thrift</a> - Communication between the CLI, UI daemon and the synchronization core.',
+                '<a href="http://gevent.org/">Gevent</a> - Threads without threads.',
             ],
-            'Jan 2014',
+            'Dec 2013',
         ) }}
 
         {{ portfolio_project('/portfolio/random_music_generator', 'Random Music Generator', 'images/rmg.png',
             'A random music generator. Generates music sheets in PDF, music itself on MIDI, or the music source on Lylipond files.<br />
-            It is badly (none at all) documentend as it was little more than a weekends experiment, but if you'"'"'d like to use it, feel free to tell me and I might put on the effort of documenting or even improving it.',
+            It is badly (none at all) documentend as it was little more than a weekend\'s experiment, but if you\'d like to use it, feel free to tell me and I might put on the effort of documenting or even improving it.
+            You can find the backend\'s source <a href="https://github.com/fvieira/random_music_generator">here</a>.',
             [
-                'poiupoiu'
+                'Backend',
+                [
+                    '<a href="http://www.python.org/">Python</a> - All backend code.',
+                    '<a href="http://www.lilypond.org/">Lilypond</a> - Converting music in Lylipond files to PDF or MIDI.',
+                    '<a href="http://www.projectabjad.org/">Abjad</a> - Python lib for working with Lylipond files.',
+                    '<a href="http://bottlepy.org/">Bottle</a> - Quick and dirty REST API.',
+                    '<a href="http://gunicorn.org/">Gunicorn</a> - Easy to use WSGI HTTP Server.',
+                    '<a href="http://nginx.org/">Nginx</a> - Reverse proxying for Gunicorn.',
+                    '<a href="http://aws.amazon.com/ec2/">Amazon EC2</a> - To host all this.',
+                ],
+                'Frontend',
+                [
+                    '<a href="http://vexflow.com/">VexFlow</a> - Pretty music notation rendering in Javascript.',
+                    '<a href="http://jquery.com/">JQuery</a> - Too lazy to use pure Javascript.',
+                ],
             ],
             'Feb 2014',
         ) }}

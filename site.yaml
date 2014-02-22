@@ -42,7 +42,9 @@ meta:
 
 jinja2:
     extensions:
-        - jinja_extensions.YearsFrom
+        - jinja_extras.YearsFrom
+    filters:
+        - jinja_extras.unordered_list
 
 urlcleaner:
     index_file_names:

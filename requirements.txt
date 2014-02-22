@@ -1,1 +1,1 @@
-hyde==0.8.8
+https://github.com/fvieira/hyde/archive/master.zip
