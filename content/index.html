@@ -58,9 +58,19 @@ I have a graduation in Computer Engineering by FCUL (Faculty of Sciences of the 
 and a [Master in Information Security](http://cmuportugal.di.fc.ul.pt/?MSc_in_Information_Security) by both FCUL and CMU (Carnegie Mellon University).
 
 
-Technical Knowledge
--------------------
+        {%- endfilter %}
+        <h2>Technical Knowledge
+        </h2>
+        <span title="Too Long; Didn't Read"><a id="tldr_link" href="#">TL;DR version</a></span>
+        <span title="Too Short; Wanna Read"><a id="tswr_link" href="#">TS;WR version</a></span>
 
+        <div id="tech_knowledge_tldr">
+            <ul>
+            </ul>
+        </div>
+
+        <div id="tech_knowledge_tswr">
+            {% filter markdown -%}
 These days, my favorite programming language is by far **Python**.
 I use it pretty much everywhere I can, such as scripting, command line applications, web applications backends, APIs, etc.
 
@@ -84,7 +94,8 @@ the result of a Master and more than two years working in a security team.
 My work at SAPO's security team was focused on **Web Security** making it my strong suit,
 but I've also [completed]({{ media_url('pdf/crypto_coursera_cert.pdf')}}) a [course on **Cryptography**](https://class.coursera.org/crypto/wiki/view?page=Overview)
 from Coursera which gave me some knowledge of crypto.
-        {%- endfilter %}
+            {%- endfilter %}
+        </div>
 
     </div>
     <script type="text/javascript">
@@ -94,5 +105,39 @@ from Coursera which gave me some knowledge of crypto.
         return Math.floor(diff / (1000 * 60 * 60 * 24 * 365.25));
     }
     document.getElementsByClassName('my_age')[0].innerHTML = getAge(new Date(1987, 10, 23));
+
+    function addTechToTLDR() {
+        var tech_knowledge = document.getElementById('tech_knowledge_tswr');
+        var technology_list = tech_knowledge.getElementsByTagName('strong');
+        var tech_knowledge_tldr = document.getElementById('tech_knowledge_tldr');
+        var ul = tech_knowledge_tldr.children[0];
+        for (var i=0; i < technology_list.length; i++) {
+            var li = document.createElement('li');
+            var li_content = document.createTextNode(technology_list[i].innerHTML);
+            li.appendChild(li_content);
+            ul.appendChild(li);
+        }
+    }
+
+    function showTLDR() {
+        document.getElementById('tech_knowledge_tldr').style.display = 'block';
+        document.getElementById('tech_knowledge_tswr').style.display = 'none';
+        document.getElementById('tldr_link').style.display = 'none';
+        document.getElementById('tswr_link').style.display = 'inline-block';
+        return false;
+    }
+
+    function showTSWR() {
+        document.getElementById('tech_knowledge_tldr').style.display = 'none';
+        document.getElementById('tech_knowledge_tswr').style.display = 'block';
+        document.getElementById('tldr_link').style.display = 'inline-block';
+        document.getElementById('tswr_link').style.display = 'none';
+        return false;
+    }
+
+    addTechToTLDR();
+    showTSWR();
+    document.getElementById('tldr_link').onclick = showTLDR;
+    document.getElementById('tswr_link').onclick = showTSWR;
     </script>
 {% endblock %}
