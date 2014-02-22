@@ -1,19 +1,18 @@
 {% extends "base.j2" %}
-{% import "macros.j2" as macros %}
 
 {% macro portfolio_project(proj_id, proj_url, proj_name, img_url, description, techs_used, creation_date, source_url) %}
         <div id="{{ proj_id }}" class="project column-group half-vertical-gutters">
             <h4 class="proj_title large-100"><a href="{{ proj_url }}">{{ proj_name }}</a></h2>
-            <label class="large-25">Screenshot:</label>
-            <div class="image_container large-75"><a href="{{ proj_url }}"><img src="{{ media_url(img_url) }}"/></a></div>
-            <label class="large-25">Description:</label>
-            <p class="proj_description large-75">{{ description }}</p>
-            <label class="large-25">Technologies used:</label>
-            <div class="proj_techs_used large-75"><ul>{{ techs_used|unordered_list }}</ul></div>
-            <label class="large-25">Created on:</label>
-            <p class="proj_creation_date large-75">{{ creation_date }}</p>
-            <label class="large-25">Source:</label>
-            <p class="proj_creation_date large-75"><a href="{{ source_url }}">{{ source_url }}</a></p>
+            <label class="screenshot_label large-25 small-100">Screenshot:</label>
+            <div class="image_container large-75 small-100"><a href="{{ proj_url }}"><img src="{{ media_url(img_url) }}"/></a></div>
+            <label class="description_label large-25 small-100">Description:</label>
+            <p class="proj_description large-75 small-100">{{ description }}</p>
+            <label class="techs_used_label large-25 small-100">Technologies used:</label>
+            <div class="proj_techs_used large-75 small-100"><ul>{{ techs_used|unordered_list }}</ul></div>
+            <label class="creation_date_label large-25 small-100">Created on:</label>
+            <p class="proj_creation_date large-75 small-100">{{ creation_date }}</p>
+            <label class="source_url_label large-25 small-100">Source:</label>
+            <p class="proj_source_url large-75 small-100"><a href="{{ source_url }}">{{ source_url }}</a></p>
         </div>
 {% endmacro %}
 
@@ -30,7 +29,7 @@
                 '<a href="https://github.com/hyde/hyde">Hyde</a> - To create a static website as if I was programming in Django.',
                 '<a href="http://jinja.pocoo.org/docs/">Jinja2</a> - Templates with inheritance, macros, custom filters, loops and variables.',
                 '<a href="http://lesscss.org/">Less</a> - CSS with nested selectors, mixins and constants.',
-                '<a href="http://ink.sapo.pt/">Ink</a> - Because I\'m not a designer, but with Ink I almost look like one.',
+                '<a href="http://ink.sapo.pt/">Ink</a> - Because I\'m not a designer, but with Ink I almost look like one (responsiveness ftw).',
             ],
             'Work in progress',
             'https://github.com/fvieira/fvieira.pt',

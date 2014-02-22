@@ -19,37 +19,45 @@ header {
     overflow: hidden; // Firefox hack
 }
 
-#topbar.ink-navigation ul.menu li a.logo:hover {
-    background: none;
-}
+.ink-navigation ul.menu.black {
+    li a {
+        &:hover {
+            background: #555;
+        }
 
-.logo {
-    font-family: "Dejavu Serif", "Courier New", "Arial", sans-serif;
-    color: #DDD;
-    font-weight: bold;
-}
+        &.logo {
+            font-family: "Dejavu Serif", "Courier New", "Arial", sans-serif;
+            font-weight: bold;
+            &:hover {
+                background: none;
+            }
+        }
+    }
 
-.ink-navigation ul.vertical li button {
-    background: none;
-    border: none;
-    outline: none;
-    position: absolute;
-    top: .6em;
-    right: 0;
-    padding: 0;
-    color: #bbbbbb;
+    li.active a {
+        background: #464646;
+        -webkit-box-shadow: none;
+        -moz-box-shadow: none;
+        box-shadow: none;
+    }
 
-    span {
-        font-size: 1.5em;
+    &.vertical li button {
+        background: none;
+        border: none;
+        outline: none;
+        position: absolute;
+        top: .6em;
+        right: 0;
+        padding: 0;
+        color: #bbbbbb;
+
+        span {
+            font-size: 1.5em;
+        }
     }
 }
 
-.ink-navigation ul li.active a {
-    background: #272727;
-    -webkit-box-shadow: none;
-    -moz-box-shadow: none;
-    box-shadow: none;
-}
+
 
 .page_title {
     text-align: center;
@@ -58,6 +66,7 @@ header {
 footer {
     text-align: center;
     padding: 1em;
+    border-bottom: 1px solid #ccc;
 }
 
 /* MARKDOWN */
@@ -89,6 +98,9 @@ footer {
         font-weight: bold;
     }
 
+    ul {
+        margin-bottom: 1em;
+    }
 }
 
 /* BLOG */
@@ -176,5 +188,12 @@ footer {
     label {
         vertical-align: middle;
         display: inline-block;
+        font-weight: bold;
+        @media screen and (max-width: 766px) {
+            margin-top: 1em;
+        }
+        &.screenshot_label {
+            margin-top: 0;
+        }
     }
 }
