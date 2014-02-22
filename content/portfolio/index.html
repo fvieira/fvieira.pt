@@ -1,8 +1,8 @@
 {% extends "base.j2" %}
 {% import "macros.j2" as macros %}
 
-{% macro portfolio_project(proj_url, proj_name, img_url, description, techs_used, creation_date) %}
-        <div class="project column-group half-vertical-gutters">
+{% macro portfolio_project(proj_id, proj_url, proj_name, img_url, description, techs_used, creation_date) %}
+        <div id="{{ proj_id }}" class="project column-group half-vertical-gutters">
             <h4 class="proj_title large-100"><a href="{{ proj_url }}">{{ proj_name }}</a></h2>
             <label class="large-25">Screenshot:</label>
             <div class="image_container large-75"><a href="{{ proj_url }}"><img src="{{ media_url(img_url) }}"/></a></div>
@@ -21,7 +21,7 @@
 
         <p class="portfolio_description">A list of some of my projects. Most are pet projects done on my free time, but some were done as part of my job and latter open-sourced.</p>
 
-        {{ portfolio_project('/', 'fvieira.pt', 'images/fvieira_pt.png',
+        {{ portfolio_project('fvieira_pt', '/', 'fvieira.pt', 'images/fvieira_pt.png',
             'My very own webpage!',
             [
                 '<a href="https://aws.amazon.com/s3">Amazon S3</a> - To host the whole static website.',
@@ -33,7 +33,7 @@
             'Work in progress',
         ) }}
 
-        {{ portfolio_project('https://github.com/sapo/meocloud-cli/', 'MEO Cloud CLI Linux', 'images/meocloud_cli.png',
+        {{ portfolio_project('meocloud_cli', 'https://github.com/sapo/meocloud-cli/', 'MEO Cloud CLI Linux', 'images/meocloud_cli.png',
             'A command line interface for <a href="https://meocloud.pt/">MEO Cloud\'s</a> desktop client.',
             [
                 '<a href="http://www.python.org/">Python</a> - Everywhere!',
@@ -43,7 +43,7 @@
             'Dec 2013',
         ) }}
 
-        {{ portfolio_project('/portfolio/random_music_generator', 'Random Music Generator', 'images/rmg.png',
+        {{ portfolio_project('rmg', '/portfolio/random_music_generator', 'Random Music Generator', 'images/rmg.png',
             'A random music generator. Generates music sheets in PDF, music itself on MIDI, or the music source on Lylipond files.<br />
             It is badly (none at all) documentend as it was little more than a weekend\'s experiment, but if you\'d like to use it, feel free to tell me and I might put on the effort of documenting or even improving it.
             You can find the backend\'s source <a href="https://github.com/fvieira/random_music_generator">here</a>.',

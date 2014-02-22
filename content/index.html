@@ -13,57 +13,79 @@
     </div>
     <div id="aboutme-full" class="markdown vertical-space">
         {% filter markdown -%}
+
 Who am I
-========
+--------
+
 I'm <span class="my_age">{% years_from 1987, 11, 23 %}</span> years old, I'm Portuguese, and I live in Lisbon since I went to the faculty.
 I like programming, intelectual challenges, and above all, learning new things and technologies.
 
-On my free time, whenever I'm not programming, I'm most likely hanging out with friends,
-playing video and board games, listening to music, or watching movies or TV series (Game of Thrones ftw).
+On my free time, whenever I'm not programming or reading tech blogs, I'm most likely hanging out with friends,
+playing video and board games, listening to music, reading books, or watching movies and TV series (Game of Thrones ftw).
 When I have the time and money, I also like to travel, either in Portugal or to other countries.
 
-Current Situation
-=================
 
-I've been working at SAPO (PT Comunica&ccedil;&otilde;es) since 2011,
-where I'm responsible for most of the programming on our security team.
-My job includes maintaining our vulnerability management backoffice,
-developing a security library for developers in various languages, and
-sometimes I even perform some security audits myself.
-Recently I've left the security team to join [**MEO Cloud's**](https://meocloud.pt/)
-team, where I'll be working on the server side with technologies such as Django,
-Cassandra, Solr, etc.
+Current Situation
+-----------------
+
+On September 2013, I've left the security team to join [**MEO Cloud**](https://meocloud.pt/)'s
+team, also at SAPO.
+Since then I've:
+
+* developed a [CLI for MEO Cloud's](/portfolio/#meocloud_cli) desktop client
+* maintained the webclient's backend
+* contributed to our API with both small features and bug fixing
+* provided Git support for most of the team! xD
+
+
+Past Jobs
+---------
+
+### February 2011 -- August 2013
+
+I was responsible for most of the developing at SAPO's (PT Comunica&ccedil;&otilde;es) security team,
+such as:
+
+* maintaining and rewriting our vulnerability management backoffice.
+* developing a security library for developers in various languages (mainly Python and PHP).
+* sometimes I even performed some security audits myself.
+
 
 Education
-==========
+----------
 
 I have a graduation in Computer Engineering by FCUL (Faculty of Sciences of the University of Lisbon)
 and a [Master in Information Security](http://cmuportugal.di.fc.ul.pt/?MSc_in_Information_Security) by both FCUL and CMU (Carnegie Mellon University).
 
+
 Technical Knowledge
-===================
+-------------------
+
+These days, my favorite programming language is by far **Python**.
+I use it pretty much everywhere I can, such as scripting, command line applications, web applications backends, APIs, etc.
+
+For APIs and web applications backends, I typically use [**Django**](https://www.djangoproject.com/) as my choice framework, although I've recently given [**Bottle**](http://bottlepy.org/) a try too.
+
+I know **SQL**, and typically use either **MySQL** or **SQLite** for my databases, although I've been meaning to try PostgreSQL for some time.
+
+During my work at MEO Cloud, I've also learned how to use **Cassandra** (just its usage, not configuration), **Thrift** and **Gevent**.
+
+Althought it's not my expertise, I also know how to use **HTML**, **CSS**, **LESS**, **Javascript**, **JQuery**, [**Ink**](http://ink.sapo.pt/), etc., meaning I can understand, tweak and maybe even develop a website's frontend.
+
+I do all my work in a Ubuntu based distro, meaning I'm well versed in the command line and on working with **Linux**.
+As for my VCS, the first I've tried was **Git** and I haven't looked back since.
 
 While I was at the faculty I programmed in **Java** in my projects whenever I could as it was the first language I had learned.
 As an hobby, I also participated in many programming contests where I gained a good level of knowledge on **Algorithms and Data Structures**.
 After the faculty I have [completed]({{ media_url('pdf/algo_coursera_cert.pdf')}}) a [course on Algorithms](https://class.coursera.org/algo/wiki/view?page=Syllabus) from Coursera on the topic in order to refresh my knowledge.
 
-These days, my favorite programming language is by far **Python**.
-I use it mainly for scripting and for developing web applications,
-where I use [**Django**](https://www.djangoproject.com/) as my choice framework.
-I know **SQL**, and typically use **MySQL** for my databases, although I've been meaning to try PostgreSQL for some time.
-
-I also know how to use **HTML**, **CSS**, **LESS**, **Javascript**, **JQuery**, [**Ink**](http://ink.sapo.pt/), etc.,
-meaning I can work both on the backend and frontends of websites.
-
-I do all my work in a Ubuntu based distro, meaning I'm well versed in the command line and on working with **Linux**.
-As for my VCS, the first I've tried was **Git** and I haven't looked back since.
-
 Last but not least, I've also got good knowledge of information security,
 the result of a Master and more than two years working in a security team.
-My work at SAPO is focused on **Web Security** making it my strong suit,
+My work at SAPO's security team was focused on **Web Security** making it my strong suit,
 but I've also [completed]({{ media_url('pdf/crypto_coursera_cert.pdf')}}) a [course on **Cryptography**](https://class.coursera.org/crypto/wiki/view?page=Overview)
-from Coursera which gave me more than enough knowledge of crypto.
+from Coursera which gave me some knowledge of crypto.
         {%- endfilter %}
+
     </div>
     <script type="text/javascript">
     function getAge(d1, d2){
