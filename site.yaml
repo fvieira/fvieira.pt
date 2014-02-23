@@ -25,7 +25,7 @@ context:
             tweet_via: fjmvieira
         google_analytics:
             website: fvieira.pt
-            tracking_id: UA-40871161-1
+            tracking_id: UA-48352522-1
         content:
             menu:
                 - {name: About me, url: /}
