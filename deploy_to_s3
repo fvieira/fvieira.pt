@@ -1,0 +1,14 @@
+#! /bin/bash
+DEPLOY_DIR=$(mktemp -d)
+hyde gen -d $DEPLOY_DIR -c production.yaml || exit $?
+find $DEPLOY_DIR -regex '.*\.\(html\|js\|css\|xml\)' -exec gzip -n -9 {} \; -exec mv {}.gz {} \;
+s3cmd sync -v --acl-public --add-header "Content-Encoding:gzip" \
+              --add-header "Cache-Control: max-age 86400" --guess-mime-type --exclude='*' --rinclude='.*\.(html|js|css|xml)' $DEPLOY_DIR/* s3://fvieira.pt
+echo
+echo
+s3cmd sync -v --acl-public --add-header "Cache-Control: max-age 86400" \
+              --guess-mime-type $DEPLOY_DIR/* s3://fvieira.pt
+echo
+echo
+s3cmd sync -v --delete-removed --acl-public $DEPLOY_DIR/* s3://fvieira.pt
+rm -rf $DEPLOY_DIR
