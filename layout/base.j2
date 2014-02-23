@@ -19,6 +19,10 @@
         <title>{{ author.name }}'s Website</title>
         <meta name="HandheldFriendly" content="true" />
         <meta name="viewport" content="width=device-width, height=device-height, user-scalable=no" />
+        <meta name="description" content="Personal website of {{ author.name }}, a self-proclaimed security-savvy software developer.">
+        <meta name="keywords" content="{{ author.name }}, Python, Django, security, computer science" />
+        <meta name="author" content="{{ author.name }}" />
+        <meta http-equiv="content-type" content="text/html;charset=UTF-8">
         <link type="text/css" rel="stylesheet" href="{{ media_url('css/ink-min.css') }}">
         <link type="text/css" rel="stylesheet" href="{{ media_url('css/style.css') }}">
         {% block extra_style %}{% endblock %}
