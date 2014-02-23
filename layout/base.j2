@@ -1,4 +1,4 @@
-{% import "social.j2" as social with context %}
+{% import "macros.j2" as macros with context %}
 
 {% macro menu_options() -%}
     {% for section in content.menu %}
@@ -26,7 +26,7 @@
         <script type="text/javascript" src="{{ media_url('js/ink-all.js') }}"></script>
         <script type="text/javascript" src="{{ media_url('js/autoload.js') }}"></script>
         {% block extra_scripts %}{% endblock %}
-        {{ social.google_analytics_script() }}
+        {{ macros.google_analytics_script() }}
     </head>
     <body>
         <header>
