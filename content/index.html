@@ -1,23 +1,24 @@
 {% extends "base.j2" %}
 
 {% block content %}
-    <div class="column-group">
-        <div id="foto" class="large-33 small-100"><img class="push-center" src="{{ media_url('images/full-photo.jpg') }}" alt="My photo" /></div>
-        <div id="aboutme-intro" class="large-66 small-100 vertical-space">
-            <div>
-                My name is <em>Francisco Vieira</em>,<br />
-                and I'm a self-proclaimed<br />
-                <a href="http://www.sans.org/20coolestcareers/#job18">Security-savvy Software Developer</a>!
+    <div itemscope itemtype="http://schema.org/Person">
+        <div class="column-group">
+            <div id="foto" class="large-33 small-100"><img class="push-center" src="{{ media_url('images/full-photo.jpg') }}" alt="My photo" itemprop="image"/></div>
+            <div id="aboutme-intro" class="large-66 small-100 vertical-space">
+                <div itemprop="description">
+                    My name is <em itemprop="name">Francisco Vieira</em>,<br />
+                    and I'm a self-proclaimed<br />
+                    <a href="http://www.sans.org/20coolestcareers/#job18" itemprop="jobTitle">Security-savvy Software Developer</a>!
+                </div>
             </div>
         </div>
-    </div>
-    <div id="aboutme-full" class="markdown vertical-space">
+        <div id="aboutme-full" class="markdown vertical-space">
         {% filter markdown -%}
 
 Who am I
 --------
 
-I'm <span class="my_age">{% years_from 1987, 11, 23 %}</span> years old, I'm Portuguese, and I live in Lisbon since I went to the faculty.
+I'm <span class="my_age">{% years_from 1987, 11, 23 %}</span> years old, I'm <span itemprop="nationality">Portuguese</span>, and I live in <span itemprop="address">Lisbon</span> since I went to the faculty.
 I like programming, intelectual challenges, and above all, learning new things and technologies.
 
 On my free time, whenever I'm not programming or reading tech blogs, I'm most likely hanging out with friends,
@@ -61,18 +62,16 @@ I have a graduation in Computer Engineering by FCUL (Faculty of Sciences of the 
 and a [Master in Information Security](http://cmuportugal.di.fc.ul.pt/?MSc_in_Information_Security) by both FCUL and CMU (Carnegie Mellon University).
 
 
-        {%- endfilter %}
-        <h2>Technical Knowledge
-        </h2>
-        <span title="Too Long; Didn't Read"><a id="tldr_link" href="#">TL;DR version</a></span>
-        <span title="Too Short; Wanna Read"><a id="tswr_link" href="#">TS;WR version</a></span>
+            {%- endfilter %}
+            <h2>Technical Knowledge</h2>
+            <span title="Too Long; Didn't Read"><a id="tldr_link" href="#">TL;DR version</a></span>
+            <span title="Too Short; Wanna Read"><a id="tswr_link" href="#">TS;WR version</a></span>
 
-        <div id="tech_knowledge_tldr">
-            <ul>
-            </ul>
-        </div>
+            <div id="tech_knowledge_tldr">
+                <ul></ul>
+            </div>
 
-        <div id="tech_knowledge_tswr">
+            <div id="tech_knowledge_tswr">
             {% filter markdown -%}
 These days, my favorite programming language is by far **Python**.
 I use it pretty much everywhere I can, such as scripting, command line applications, web applications backends, APIs, etc.
@@ -98,49 +97,50 @@ My work at SAPO's security team was focused on **Web Security** making it my str
 but I've also [completed]({{ media_url('pdf/crypto_coursera_cert.pdf')}}) a [course on **Cryptography**](https://class.coursera.org/crypto/wiki/view?page=Overview)
 from Coursera which gave me some knowledge of crypto.
             {%- endfilter %}
+            </div>
+
         </div>
-
-    </div>
-    <script type="text/javascript">
-    function getAge(d1, d2){
-        d2 = d2 || new Date();
-        var diff = d2.getTime() - d1.getTime();
-        return Math.floor(diff / (1000 * 60 * 60 * 24 * 365.25));
-    }
-    document.getElementsByClassName('my_age')[0].innerHTML = getAge(new Date(1987, 10, 23));
-
-    function addTechToTLDR() {
-        var tech_knowledge = document.getElementById('tech_knowledge_tswr');
-        var technology_list = tech_knowledge.getElementsByTagName('strong');
-        var tech_knowledge_tldr = document.getElementById('tech_knowledge_tldr');
-        var ul = tech_knowledge_tldr.children[0];
-        for (var i=0; i < technology_list.length; i++) {
-            var li = document.createElement('li');
-            var li_content = document.createTextNode(technology_list[i].innerHTML);
-            li.appendChild(li_content);
-            ul.appendChild(li);
+        <script type="text/javascript">
+        function getAge(d1, d2){
+            d2 = d2 || new Date();
+            var diff = d2.getTime() - d1.getTime();
+            return Math.floor(diff / (1000 * 60 * 60 * 24 * 365.25));
         }
-    }
+        document.getElementsByClassName('my_age')[0].innerHTML = getAge(new Date(1987, 10, 23));
 
-    function showTLDR() {
-        document.getElementById('tech_knowledge_tldr').style.display = 'block';
-        document.getElementById('tech_knowledge_tswr').style.display = 'none';
-        document.getElementById('tldr_link').style.display = 'none';
-        document.getElementById('tswr_link').style.display = 'inline-block';
-        return false;
-    }
+        function addTechToTLDR() {
+            var tech_knowledge = document.getElementById('tech_knowledge_tswr');
+            var technology_list = tech_knowledge.getElementsByTagName('strong');
+            var tech_knowledge_tldr = document.getElementById('tech_knowledge_tldr');
+            var ul = tech_knowledge_tldr.children[0];
+            for (var i=0; i < technology_list.length; i++) {
+                var li = document.createElement('li');
+                var li_content = document.createTextNode(technology_list[i].innerHTML);
+                li.appendChild(li_content);
+                ul.appendChild(li);
+            }
+        }
 
-    function showTSWR() {
-        document.getElementById('tech_knowledge_tldr').style.display = 'none';
-        document.getElementById('tech_knowledge_tswr').style.display = 'block';
-        document.getElementById('tldr_link').style.display = 'inline-block';
-        document.getElementById('tswr_link').style.display = 'none';
-        return false;
-    }
+        function showTLDR() {
+            document.getElementById('tech_knowledge_tldr').style.display = 'block';
+            document.getElementById('tech_knowledge_tswr').style.display = 'none';
+            document.getElementById('tldr_link').style.display = 'none';
+            document.getElementById('tswr_link').style.display = 'inline-block';
+            return false;
+        }
 
-    addTechToTLDR();
-    showTSWR();
-    document.getElementById('tldr_link').onclick = showTLDR;
-    document.getElementById('tswr_link').onclick = showTSWR;
-    </script>
+        function showTSWR() {
+            document.getElementById('tech_knowledge_tldr').style.display = 'none';
+            document.getElementById('tech_knowledge_tswr').style.display = 'block';
+            document.getElementById('tldr_link').style.display = 'inline-block';
+            document.getElementById('tswr_link').style.display = 'none';
+            return false;
+        }
+
+        addTechToTLDR();
+        showTSWR();
+        document.getElementById('tldr_link').onclick = showTLDR;
+        document.getElementById('tswr_link').onclick = showTSWR;
+        </script>
+    </div>
 {% endblock %}
