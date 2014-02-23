@@ -41,6 +41,12 @@ meta:
     nodemeta: meta.yaml
     author: Francisco Vieira
 
+less:
+    app: lessc
+    args:
+        compress: ""
+        O2: ""
+
 jinja2:
     extensions:
         - jinja_extras.YearsFrom

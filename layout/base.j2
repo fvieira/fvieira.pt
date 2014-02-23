@@ -23,8 +23,9 @@
         <link type="text/css" rel="stylesheet" href="{{ media_url('css/style.css') }}">
         {% block extra_style %}{% endblock %}
         <link rel="icon" type="image/ico" href="{{ media_url('images/favicon.ico') }}">
-        <script type="text/javascript" src="{{ media_url('js/ink-all.js') }}"></script>
-        <script type="text/javascript" src="{{ media_url('js/autoload.js') }}"></script>
+        {# <script type="text/javascript" src="{{ media_url('js/ink-all.js') }}"></script> #}
+        {# <script type="text/javascript" src="{{ media_url('js/autoload.js') }}"></script> #}
+        <script type="text/javascript" src="{{ media_url('js/ink-all.min.js') }}"></script>
         {% block extra_scripts %}{% endblock %}
         {{ macros.google_analytics_script() }}
     </head>
