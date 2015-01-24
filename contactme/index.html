@@ -1,11 +1,12 @@
-{% extends "base.j2" %}
+---
+layout: default
+---
 
-{% block content %}
 <div class="contacts">
     <h1 class="page_title">Contacts</h1>
     <div>
         <label class="large-35 small-100" id="lebal_liame"></label>
-        <div class="large-65 small-100"><img id="liame_ym" src="{{ media_url('images/email.png') }}"/></div>
+        <div class="large-65 small-100"><img id="liame_ym" src="{{ 'images/email.png' | prepend: site.media_url }}"/></div>
         <div class="large-100"></div>
     </div>
     <div>
@@ -28,5 +29,3 @@
     document.getElementById('lebal_liame').innerHTML = z(':yvnzR');
     document.getElementById('liame_ym').setAttribute('alt', z('zbp gbq yvnzt gn nevrvi gbq z gbq w gbq bpfvpanes'));
 </script>
-
-{% endblock %}

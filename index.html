@@ -1,0 +1,146 @@
+---
+layout: default
+---
+
+<div itemscope itemtype="http://schema.org/Person">
+    <div class="column-group">
+        <div id="foto" class="large-33 small-100"><img class="push-center" src="{{ 'images/full-photo.jpg' | prepend: site.media_url }}" alt="My photo" itemprop="image"/></div>
+        <div id="aboutme-intro" class="large-66 small-100 vertical-space">
+            <div itemprop="description">
+                My name is <em itemprop="name">Francisco Vieira</em>,<br />
+                and I'm a self-proclaimed<br />
+                <a href="http://www.sans.org/20coolestcareers/#job18" itemprop="jobTitle">Security-savvy Software Developer</a>!
+            </div>
+        </div>
+    </div>
+    <div id="aboutme-full" class="markdown vertical-space">
+        {% markdown %}
+Who am I
+--------
+
+I'm <span class="my_age"></span> years old, I'm <span itemprop="nationality">Portuguese</span>, and I live in <span itemprop="address">Lisbon</span> since I went to the faculty.
+I like programming, intelectual challenges, and above all, learning new things and technologies.
+
+On my free time, whenever I'm not programming or reading tech blogs, I'm most likely hanging out with friends,
+playing video and board games, listening to music, reading books, or watching movies and TV series (Game of Thrones ftw).
+When I have the time and money, I also like to travel, either in Portugal or to other countries.
+
+Check my [portfolio](/portfolio) to see what I've been up to, or [contact me](/contactme).
+
+
+Current Situation
+-----------------
+
+Since September 2014 I've been working as a backend developer at [**Lumi**](https://lumi.do/).
+
+
+Past Jobs
+---------
+
+### September 2013 -> July 2014
+
+Backend developer at SAPO's [**MEO Cloud**](https://meocloud.pt/) team, where I:
+
+* developed a [CLI for MEO Cloud's](/portfolio/#meocloud_cli) desktop client
+* maintained the webclient's backend
+* contributed to our API with both small features and bug fixing
+* provided Git support for most of the team! xD
+
+
+### February 2011 -> August 2013
+
+I was responsible for most of the developing at SAPO's (PT Comunica&ccedil;&otilde;es) security team,
+such as:
+
+* maintaining and rewriting our vulnerability management backoffice.
+* developing a security library for developers in various languages (mainly Python and PHP).
+* sometimes I even performed some security audits myself.
+
+
+Education
+----------
+
+I have a graduation in Computer Engineering by FCUL (Faculty of Sciences of the University of Lisbon)
+and a [Master in Information Security](http://cmuportugal.di.fc.ul.pt/?MSc_in_Information_Security) by both FCUL and CMU (Carnegie Mellon University).
+        {% endmarkdown %}
+
+        <h2>Technical Knowledge</h2>
+        <span title="Too Long; Didn't Read"><a id="tldr_link" href="#">TL;DR version</a></span>
+        <span title="Too Short; Wanna Read"><a id="tswr_link" href="#">TS;WR version</a></span>
+
+        <div id="tech_knowledge_tldr">
+            <ul></ul>
+        </div>
+
+        <div id="tech_knowledge_tswr">
+            {% markdown %}
+These days, my favorite programming language is by far **Python**.
+I use it pretty much everywhere I can, such as scripting, command line applications, web applications backends, APIs, etc.
+
+For APIs and web applications backends, I typically use [**Django**](https://www.djangoproject.com/) as my choice framework, although I've recently given [**Bottle**](http://bottlepy.org/) a try too.
+
+I know **SQL**, and typically use either **MySQL** or **SQLite** for my databases, although I've been meaning to try PostgreSQL for some time.
+
+During my work at MEO Cloud, I've also learned how to use **Cassandra** (just its usage, not configuration), **Thrift** and **Gevent**.
+
+Althought it's not my expertise, I also know how to use **HTML**, **CSS**, **LESS**, **Javascript**, **JQuery**, [**Ink**](http://ink.sapo.pt/), etc., meaning I can understand, tweak and maybe even develop a website's frontend.
+
+I do all my work in a Ubuntu based distro, meaning I'm well versed in the command line and on working with **Linux**.
+As for my VCS, the first I've tried was **Git** and I haven't looked back since.
+
+While I was at the faculty I programmed in **Java** in my projects whenever I could as it was the first language I had learned.
+As an hobby, I also participated in many programming contests where I gained a good level of knowledge on **Algorithms and Data Structures**.
+After the faculty I have [completed]({{ 'pdf/algo_coursera_cert.pdf' | prepend: site.media_url}}) a [course on Algorithms](https://class.coursera.org/algo/wiki/view?page=Syllabus) from Coursera on the topic in order to refresh my knowledge.
+
+Last but not least, I've also got good knowledge of information security,
+the result of a Master and more than two years working in a security team.
+My work at SAPO's security team was focused on **Web Security** making it my strong suit,
+but I've also [completed]({{ 'pdf/crypto_coursera_cert.pdf' | prepend: site.media_url}}) a [course on **Cryptography**](https://class.coursera.org/crypto/wiki/view?page=Overview)
+from Coursera which gave me some knowledge of crypto.
+            {% endmarkdown %}
+        </div>
+
+    </div>
+    <script type="text/javascript">
+    function getAge(d1, d2){
+        d2 = d2 || new Date();
+        var diff = d2.getTime() - d1.getTime();
+        return Math.floor(diff / (1000 * 60 * 60 * 24 * 365.25));
+    }
+    document.getElementsByClassName('my_age')[0].innerHTML = getAge(new Date(1987, 10, 23));
+
+    function addTechToTLDR() {
+        var tech_knowledge = document.getElementById('tech_knowledge_tswr');
+        var technology_list = tech_knowledge.getElementsByTagName('strong');
+        var tech_knowledge_tldr = document.getElementById('tech_knowledge_tldr');
+        var ul = tech_knowledge_tldr.children[0];
+        for (var i=0; i < technology_list.length; i++) {
+            var li = document.createElement('li');
+            var li_content = document.createTextNode(technology_list[i].innerHTML);
+            li.appendChild(li_content);
+            ul.appendChild(li);
+        }
+    }
+
+    function showTLDR() {
+        document.getElementById('tech_knowledge_tldr').style.display = 'block';
+        document.getElementById('tech_knowledge_tswr').style.display = 'none';
+        document.getElementById('tldr_link').style.display = 'none';
+        document.getElementById('tswr_link').style.display = 'inline-block';
+        return false;
+    }
+
+    function showTSWR() {
+        document.getElementById('tech_knowledge_tldr').style.display = 'none';
+        document.getElementById('tech_knowledge_tswr').style.display = 'block';
+        document.getElementById('tldr_link').style.display = 'inline-block';
+        document.getElementById('tswr_link').style.display = 'none';
+        return false;
+    }
+
+    addTechToTLDR();
+    showTSWR();
+    document.getElementById('tldr_link').onclick = showTLDR;
+    document.getElementById('tswr_link').onclick = showTSWR;
+    </script>
+</div>

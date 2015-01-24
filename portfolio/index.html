@@ -1,0 +1,94 @@
+---
+layout: default
+projects:
+    -   id: fvieira_pt
+        url: /
+        name: fvieira.pt
+        img_url: images/fvieira_pt.png
+        description: My very own webpage!
+        techs_used:
+            - <a href="https://aws.amazon.com/s3">Amazon S3</a> - To host the whole static website.
+            - <a href="http://jekyllrb.com/">Jekyll</a> - To create a static website as if I was programming in Django.
+            - <a href="http://sass-lang.com/">Sass</a> - CSS with nested selectors, mixins and constants.
+            - <a href="http://ink.sapo.pt/">Ink</a> - Because I'm not a designer, but with Ink I almost look like one (responsiveness ftw).
+        creation_date: Work in progress
+        source_url: https://github.com/fvieira/fvieira.pt
+
+
+    -   id: meocloud_cli
+        url: https://github.com/sapo/meocloud-cli/
+        name: MEO Cloud CLI Linux
+        img_url: images/meocloud_cli.png
+        description: A command line interface for <a href="https://meocloud.pt/">MEO Cloud's</a> desktop client.
+        techs_used:
+            - <a href="http://www.python.org/">Python</a> - Everywhere!
+            - <a href="https://thrift.apache.org/">Thrift</a> - Communication between the CLI, UI daemon and the synchronization core.
+            - <a href="http://gevent.org/">Gevent</a> - Threads without threads.
+        creation_date: Dec 2013
+        source_url: https://github.com/sapo/meocloud-cli/
+
+
+    -   id: rmg
+        url: /portfolio/random_music_generator
+        name: Random Music Generator
+        img_url: images/rmg.png
+        description: A random music generator. Generates music sheets in PDF, music itself on MIDI, or the music source on Lylipond files.<br />
+            It is badly (none at all) documentend as it was little more than a weekend's experiment, but if you'd like to use it, feel free to tell me and I might put on the effort of documenting or even improving it.
+            You can find the backend's source <a href="https://github.com/fvieira/random_music_generator">here</a>.
+        techs_used:
+            Backend:
+                - <a href="http://www.python.org/">Python</a> - All backend code.
+                - <a href="http://www.lilypond.org/">Lilypond</a> - Converting music in Lylipond files to PDF or MIDI.
+                - <a href="http://www.projectabjad.org/">Abjad</a> - Python lib for working with Lylipond files.
+                - <a href="http://bottlepy.org/">Bottle</a> - Quick and dirty REST API.
+                - <a href="http://gunicorn.org/">Gunicorn</a> - Easy to use WSGI HTTP Server.
+                - <a href="http://nginx.org/">Nginx</a> - Reverse proxying for Gunicorn.
+                - <a href="https://www.digitalocean.com/">Digital Ocean</a> - To host all this.
+            Frontend:
+                - <a href="http://vexflow.com/">VexFlow</a> - Pretty music notation rendering in Javascript.
+                - <a href="http://jquery.com/">JQuery</a> - Too lazy to use pure Javascript.
+        creation_date: Feb 2014
+        source_url: https://github.com/fvieira/fvieira.pt
+---
+
+<div id="portfolio">
+    <h1 class="page_title">Portfolio</h1>
+
+    <p class="portfolio_description">A list of some of my open-source projects. Most are pet projects done on my free time, but some were done as part of my job and latter open-sourced.</p>
+
+    {% for project in page.projects %}
+    <div id="{{ project.id }}" class="project column-group half-vertical-gutters">
+        <h4 class="proj_title large-100"><a href="{{ project.url }}">{{ project.name }}</a></h2>
+        <label class="screenshot_label large-25 small-100">Screenshot:</label>
+        <div class="image_container large-75 small-100"><a href="{{ project.url }}"><img src="{{ project.img_url | prepend: site.media_url }}"/></a></div>
+        <label class="description_label large-25 small-100">Description:</label>
+        <p class="proj_description large-75 small-100">{{ project.description }}</p>
+        <label class="techs_used_label large-25 small-100">Technologies used:</label>
+        {% if project.techs_used %}
+        <div class="proj_techs_used large-75 small-100">
+            <ul>
+                {% for tech_used in project.techs_used %}
+                    {% if tech_used[0] %}
+                        {% comment %}techs_used has nested items{% endcomment %}
+                        <li>{{ tech_used[0] }}</li>
+                        <ul>
+                            {% for tech_used_sub in tech_used[1] %}
+                                <li>{{ tech_used_sub }}</li>
+                            {% endfor %}
+                        </ul>
+                    {% else %}
+                        <li>{{ tech_used }}</li>
+                    {% endif %}
+                {% endfor %}
+            </ul>
+        </div>
+        {% endif %}
+        <label class="creation_date_label large-25 small-100">Created on:</label>
+        <p class="proj_creation_date large-75 small-100">{{ project.creation_date }}</p>
+        <label class="source_url_label large-25 small-100">Source:</label>
+        <p class="proj_source_url large-75 small-100"><a href="{{ project.source_url }}">{{ project.source_url }}</a></p>
+    </div>
+    {% endfor %}
+
+</div>
+

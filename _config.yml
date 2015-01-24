@@ -1,0 +1,22 @@
+# Jekyll configs
+exclude: ["scripts"]
+asset_pipeline:
+    staging_path: ../.assets_pipeline
+
+# Site settings
+media_url: /assets/
+
+author:
+    name: Francisco Vieira
+    email: francisco.j.m.vieira@gmail.com
+    github_link: https://github.com/fvieira
+    website: http://fvieira.pt
+    tweet_via: fjmvieira
+google_analytics:
+    website: fvieira.pt
+    tracking_id: UA-48352522-1
+content:
+    menu:
+        - {name: About me, url: /}
+        - {name: Portfolio, url: /portfolio/}
+        - {name: Contacts, url: /contactme/}

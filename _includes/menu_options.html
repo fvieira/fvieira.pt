@@ -1,0 +1,9 @@
+{% for section in site.content.menu %}
+    {% capture section_url_with_index %}{{ section.url }}index.html{% endcapture %}
+    {% if section_url_with_index == page.url %}
+        {% assign active = " active" %}
+    {% else %}
+        {% assign active = "" %}
+    {% endif %}
+    <li class="tab{{ active }}"><a href="{{ section.url }}">{{ section.name }}</a></li>
+{% endfor %}

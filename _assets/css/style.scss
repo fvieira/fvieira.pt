@@ -1,6 +1,6 @@
-@content-font-size: 1.2em;
-@content-max-width: 850px;
-@aboutme-intro-color: #8D8D8D;
+$content-font-size: 1.2em;
+$content-max-width: 850px;
+$aboutme-intro-color: #8D8D8D;
 
 body {
     background-color: #F5F5F5;
@@ -11,8 +11,8 @@ header {
 }
 
 #content {
-    font-size: @content-font-size;
-    max-width: @content-max-width;
+    font-size: $content-font-size;
+    max-width: $content-max-width;
 }
 
 #topbar {
@@ -126,19 +126,19 @@ footer {
 #aboutme-intro {
     font-family: "Passion One", "Impact", sans-serif;
     font-size: 1.5em;
-    color: @aboutme-intro-color;
+    color: $aboutme-intro-color;
     line-height: 1.5em;
     text-align: center;
 
     a {
         text-decoration: none;
-        border-bottom: 1px dashed darken(@aboutme-intro-color, 10%);
-        color: @aboutme-intro-color;
+        border-bottom: 1px dashed darken($aboutme-intro-color, 10%);
+        color: $aboutme-intro-color;
     }
 
     a:hover {
-       color: darken(@aboutme-intro-color, 10%);
-       border-bottom-color: darken(@aboutme-intro-color, 20%);
+       color: darken($aboutme-intro-color, 10%);
+       border-bottom-color: darken($aboutme-intro-color, 20%);
     }
 
     em {

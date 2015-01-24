@@ -1,0 +1,21 @@
+<header>
+    <div id="topbar" class="ink-navigation ink-grid">
+         <ul class="menu vertical black flat hide-all show-small">
+            <li>
+            <a class="logo">{{ site.author.name }}</a>
+            <button class="toggle" data-target="#vertical-menu-options"><span class="icon-reorder"></span></button>
+            </li>
+         </ul>
+         <ul id="vertical-menu-options" class="menu vertical black flat hide-all">
+            <div>
+                {% include menu_options.html %}
+            </div>
+        </ul>
+        <ul class="menu horizontal black flat hide-small">
+            <li><a class="logo">{{ site.author.name }}</a></li>
+            <div class="push-right">
+                {% include menu_options.html %}
+            </div>
+        </ul>
+    </div>
+</header>

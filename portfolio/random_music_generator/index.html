@@ -1,0 +1,121 @@
+---
+layout: default
+---
+<style>
+#download_buttons button a {
+    text-decoration: none;
+}
+
+#duration_probabilities input {
+    width: 40px;
+}
+
+.text_configs input {
+    margin-left: 10px;
+}
+</style>
+
+
+<h1 class="page_title">Random Music Generator</h1>
+
+<div class="vertical-space">
+    <p>Pitches:</p>
+        <canvas id="pitches_canvas1" width="750" height="120"></canvas>
+    <div style="height: 0px">
+                <input type="checkbox" name="pitches" value="-8" style="position: absolute; margin-left: 53px; margin-top: -10px" checked>
+                <input type="checkbox" name="pitches" value="-7" style="position: absolute; margin-left: 111px; margin-top: -10px" checked>
+                <input type="checkbox" name="pitches" value="-6" style="position: absolute; margin-left: 169px; margin-top: -10px" >
+                <input type="checkbox" name="pitches" value="-5" style="position: absolute; margin-left: 227px; margin-top: -10px" checked>
+                <input type="checkbox" name="pitches" value="-4" style="position: absolute; margin-left: 285px; margin-top: -10px" >
+                <input type="checkbox" name="pitches" value="-3" style="position: absolute; margin-left: 343px; margin-top: -10px" checked>
+                <input type="checkbox" name="pitches" value="-2" style="position: absolute; margin-left: 401px; margin-top: -10px" >
+                <input type="checkbox" name="pitches" value="-1" style="position: absolute; margin-left: 459px; margin-top: -10px" checked>
+                <input type="checkbox" name="pitches" value="0" style="position: absolute; margin-left: 517px; margin-top: -10px" checked>
+                <input type="checkbox" name="pitches" value="1" style="position: absolute; margin-left: 575px; margin-top: -10px" >
+                <input type="checkbox" name="pitches" value="2" style="position: absolute; margin-left: 633px; margin-top: -10px" checked>
+                <input type="checkbox" name="pitches" value="3" style="position: absolute; margin-left: 691px; margin-top: -10px" >
+            </div>
+    <canvas id="pitches_canvas2" width="750" height="120"></canvas>
+    <div style="height: 0px">
+                <input type="checkbox" name="pitches" value="4" style="position: absolute; margin-left: 53px; margin-top: -40px" checked>
+                <input type="checkbox" name="pitches" value="5" style="position: absolute; margin-left: 111px; margin-top: -40px" checked>
+                <input type="checkbox" name="pitches" value="6" style="position: absolute; margin-left: 169px; margin-top: -40px" >
+                <input type="checkbox" name="pitches" value="7" style="position: absolute; margin-left: 227px; margin-top: -40px" checked>
+                <input type="checkbox" name="pitches" value="8" style="position: absolute; margin-left: 285px; margin-top: -40px" >
+                <input type="checkbox" name="pitches" value="9" style="position: absolute; margin-left: 343px; margin-top: -40px" checked>
+                <input type="checkbox" name="pitches" value="10" style="position: absolute; margin-left: 401px; margin-top: -40px" >
+                <input type="checkbox" name="pitches" value="11" style="position: absolute; margin-left: 459px; margin-top: -40px" checked>
+                <input type="checkbox" name="pitches" value="12" style="position: absolute; margin-left: 517px; margin-top: -40px" checked>
+                <input type="checkbox" name="pitches" value="13" style="position: absolute; margin-left: 575px; margin-top: -40px" >
+                <input type="checkbox" name="pitches" value="14" style="position: absolute; margin-left: 633px; margin-top: -40px" checked>
+                <input type="checkbox" name="pitches" value="15" style="position: absolute; margin-left: 691px; margin-top: -40px" >
+            </div>
+    <canvas id="pitches_canvas3" width="750" height="120"></canvas>
+    <div style="height: 30px">
+                <input type="checkbox" name="pitches" value="16" style="position: absolute; margin-left: 53px; margin-top: -40px" checked>
+                <input type="checkbox" name="pitches" value="17" style="position: absolute; margin-left: 111px; margin-top: -40px" checked>
+                <input type="checkbox" name="pitches" value="18" style="position: absolute; margin-left: 169px; margin-top: -40px" >
+                <input type="checkbox" name="pitches" value="19" style="position: absolute; margin-left: 227px; margin-top: -40px" checked>
+                <input type="checkbox" name="pitches" value="20" style="position: absolute; margin-left: 285px; margin-top: -40px" >
+                <input type="checkbox" name="pitches" value="21" style="position: absolute; margin-left: 343px; margin-top: -40px" checked>
+                <input type="checkbox" name="pitches" value="22" style="position: absolute; margin-left: 401px; margin-top: -40px" >
+                <input type="checkbox" name="pitches" value="23" style="position: absolute; margin-left: 459px; margin-top: -40px" checked>
+                <input type="checkbox" name="pitches" value="24" style="position: absolute; margin-left: 517px; margin-top: -40px" checked>
+                <input type="checkbox" name="pitches" value="25" style="position: absolute; margin-left: 575px; margin-top: -40px" >
+                <input type="checkbox" name="pitches" value="26" style="position: absolute; margin-left: 633px; margin-top: -40px" checked>
+                <input type="checkbox" name="pitches" value="27" style="position: absolute; margin-left: 691px; margin-top: -40px" >
+            </div>
+</div>
+
+<div class="vertical-space" style="martin-top: 50px">
+    <p>Durations:</p>
+    <canvas id="durations_canvas" width="750" height="100"></canvas>
+    <div style="height: 20px">
+                <input type="checkbox" name="durations" value="1" style="position: absolute; margin-left: 53px" checked>
+                <input type="checkbox" name="durations" value="0.875" style="position: absolute; margin-left: 215px" >
+                <input type="checkbox" name="durations" value="0.75" style="position: absolute; margin-left: 365px" >
+                <input type="checkbox" name="durations" value="0.5" style="position: absolute; margin-left: 488px" checked>
+                <input type="checkbox" name="durations" value="0.375" style="position: absolute; margin-left: 580px" >
+                <input type="checkbox" name="durations" value="0.25" style="position: absolute; margin-left: 650px" checked>
+                <input type="checkbox" name="durations" value="0.125" style="position: absolute; margin-left: 710px" checked>
+            </div>
+    <div id="duration_probabilities" style="height: 50px">
+                <input type="text" name="duration_probability" value="10" style="position: absolute; margin-left: 53px"/>
+                <input type="text" name="duration_probability" value="1" style="position: absolute; margin-left: 215px"/>
+                <input type="text" name="duration_probability" value="5" style="position: absolute; margin-left: 365px"/>
+                <input type="text" name="duration_probability" value="30" style="position: absolute; margin-left: 488px"/>
+                <input type="text" name="duration_probability" value="5" style="position: absolute; margin-left: 580px"/>
+                <input type="text" name="duration_probability" value="50" style="position: absolute; margin-left: 650px"/>
+                <input type="text" name="duration_probability" value="50" style="position: absolute; margin-left: 710px"/>
+            </div>
+</div>
+
+<div class="text_configs">
+    <div class="vertical-space">
+        <p>Measure size: <input type="text" name="measure_size" id="measure_size" value="4"/></p>
+    </div>
+    <div class="vertical-space">
+        <p>Rest Probability: <input type="text" name="rest_probability" id="rest_probability" value="0.20"/></p>
+    </div>
+    <div class="vertical-space">
+        <p>Tie Probability: <input type="text" name="tie_probability" id="tie_probability" value="0.3333"/></p>
+    </div>
+    <div class="vertical-space">
+        <p>Length: <input type="text" name="length" id="length" value="50"/></p>
+    </div>
+</div>
+
+<div class="vertical-space">
+    <input type="button" id="generate_random_music_btn" name="submit" value="Generate random music"/>
+</div>
+
+<div class="vertical-space">
+    <p id="waiting_message" style="display:none;">Generating random files, please wait a moment...</p>
+    <div id="download_buttons">
+        <a id="get_music_as_pdf_link" style="display: none"><button class="ink-button">Download as .pdf</button></a>
+        <a id="get_music_as_midi_link" style="display: none"><button class="ink-button">Download as .midi</button></a>
+        <a id="get_music_as_ly_link" style="display: none"><button class="ink-button">Download as .ly</button></a>
+    </div>
+</div>
+
+<script type="text/javascript" src="{{ 'js/random_music_generator.js' | prepend: site.media_url }}"></script>

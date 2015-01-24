@@ -1,0 +1,13 @@
+#! /bin/bash
+DEPLOY_DIR=$(mktemp -d)
+JEKYLL_ENV=production jekyll build --destination $DEPLOY_DIR || exit $?
+find $DEPLOY_DIR -regex '.*\.\(html\|js\|css\|xml\)' -exec gzip -n -9 {} \; -exec mv {}.gz {} \;
+s3cmd sync -v --acl-public --add-header="content-encoding":"gzip" \
+              --add-header="cache-control":"max-age 86400" --guess-mime-type --exclude='*' --rinclude='.*\.(html|js|css|xml)' --signature-v2 $DEPLOY_DIR/* s3://fvieira.pt
+echo
+echo
+s3cmd sync -v --acl-public --add-header="cache-control: max-age 86400" --guess-mime-type --signature-v2 $DEPLOY_DIR/* s3://fvieira.pt
+echo
+echo
+s3cmd sync -v --delete-removed --acl-public $DEPLOY_DIR/* s3://fvieira.pt
+rm -rf $DEPLOY_DIR

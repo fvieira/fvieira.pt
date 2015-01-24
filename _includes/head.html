@@ -1,0 +1,23 @@
+<head>
+    <title>{{ site.author.name }}'s Website</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="HandheldFriendly" content="true" />
+    <meta name="viewport" content="width=device-width, height=device-height, user-scalable=no" />
+    <meta name="description" content="Personal website of {{ site.author.name }}, a self-proclaimed security-savvy software developer.">
+    <meta name="keywords" content="{{ site.author.name }}, Python, Django, security, computer science" />
+    <meta name="author" content="{{ site.author.name }}" />
+    <meta charset="utf-8">
+    {% css_asset_tag global %}
+    - /_assets/css/ink-min.css
+    - /_assets/css/style.scss
+    {% endcss_asset_tag %}
+    <link rel="icon" type="image/ico" href="{{ 'images/favicon.ico' | prepend: site.media_url }}">
+    {% comment %} - /_assets/js/ink-all.js' {% endcomment %}
+    {% comment %} - /_assets/js/autoload.js' {% endcomment %}
+    {% javascript_asset_tag global %}
+    - /_assets/js/ink-all.min.js
+    - /_assets/js/jquery-1.11.2.min.js
+    - /_assets/js/vexflow-min.js
+    {% endjavascript_asset_tag %}
+    {% include ga_script.html %}
+</head>
