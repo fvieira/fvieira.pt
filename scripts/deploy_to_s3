@@ -1,9 +1,21 @@
 #! /bin/bash
+
+# NOTE: Run me from the top level directory, fvieira.pt!
+
 DEPLOY_DIR=$(mktemp -d)
 JEKYLL_ENV=production jekyll build --destination $DEPLOY_DIR || exit $?
-find $DEPLOY_DIR -regex '.*\.\(html\|js\|css\|xml\)' -exec gzip -n -9 {} \; -exec mv {}.gz {} \;
+# Remove the -n in gzip to force reupload of html, js and css
+find $DEPLOY_DIR -regex '.*\.\(html\|js\|css\)' -exec gzip -n -9 {} \; -exec mv {}.gz {} \;
 s3cmd sync -v --acl-public --add-header="content-encoding":"gzip" \
-              --add-header="cache-control":"max-age 86400" --guess-mime-type --exclude='*' --rinclude='.*\.(html|js|css|xml)' --signature-v2 $DEPLOY_DIR/* s3://fvieira.pt
+              --add-header="cache-control":"max-age 86400" --mime-type='text/html' --exclude='*' --rinclude='.*\.html' --signature-v2 $DEPLOY_DIR/* s3://fvieira.pt
+echo
+echo
+s3cmd sync -v --acl-public --add-header="content-encoding":"gzip" \
+              --add-header="cache-control":"max-age 86400" --mime-type='text/css' --exclude='*' --rinclude='.*\.css' --signature-v2 $DEPLOY_DIR/* s3://fvieira.pt
+echo
+echo
+s3cmd sync -v --acl-public --add-header="content-encoding":"gzip" \
+              --add-header="cache-control":"max-age 86400" --mime-type='application/javascript' --exclude='*' --rinclude='.*\.js' --signature-v2 $DEPLOY_DIR/* s3://fvieira.pt
 echo
 echo
 s3cmd sync -v --acl-public --add-header="cache-control: max-age 86400" --guess-mime-type --signature-v2 $DEPLOY_DIR/* s3://fvieira.pt
